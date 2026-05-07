@@ -7,8 +7,8 @@ package io.github.eggy03.nautilus.windows.worker;
 import io.github.eggy03.cimari.entity.display.Win32VideoController;
 import io.github.eggy03.cimari.service.display.Win32VideoControllerService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.ui.primary.utilities.WMIDateUtility;
-import io.github.eggy03.nautilus.windows.ui.primary.utilities.WMISizeUtility;
+import io.github.eggy03.nautilus.windows.worker.utilities.WMIDateUtility;
+import io.github.eggy03.nautilus.windows.worker.utilities.WMISizeUtility;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

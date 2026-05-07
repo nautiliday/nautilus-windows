@@ -7,7 +7,7 @@ package io.github.eggy03.nautilus.windows.worker;
 import io.github.eggy03.cimari.entity.mainboard.Win32Bios;
 import io.github.eggy03.cimari.service.mainboard.Win32BiosService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.ui.primary.utilities.WMIDateUtility;
+import io.github.eggy03.nautilus.windows.worker.utilities.WMIDateUtility;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

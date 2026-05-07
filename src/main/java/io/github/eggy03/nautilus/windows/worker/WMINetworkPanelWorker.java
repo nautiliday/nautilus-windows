@@ -11,9 +11,9 @@ import io.github.eggy03.cimari.entity.network.MsftNetConnectionProfile;
 import io.github.eggy03.cimari.entity.network.MsftNetIpAddress;
 import io.github.eggy03.cimari.service.compounded.MsftNetAdapterToIpAndDnsAndProfileService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.ui.primary.constant.WMIConstants;
-import io.github.eggy03.nautilus.windows.ui.primary.utilities.WMIBooleanUtility;
-import io.github.eggy03.nautilus.windows.ui.primary.utilities.WMINetworkUtility;
+import io.github.eggy03.nautilus.windows.worker.constant.WMIConstants;
+import io.github.eggy03.nautilus.windows.worker.utilities.WMIBooleanUtility;
+import io.github.eggy03.nautilus.windows.worker.utilities.WMINetworkUtility;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

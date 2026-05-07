@@ -7,8 +7,8 @@ package io.github.eggy03.nautilus.windows.worker;
 import io.github.eggy03.cimari.entity.user.Win32UserAccount;
 import io.github.eggy03.cimari.service.user.Win32UserAccountService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.ui.primary.constant.WMIConstants;
-import io.github.eggy03.nautilus.windows.ui.primary.utilities.WMIBooleanUtility;
+import io.github.eggy03.nautilus.windows.worker.constant.WMIConstants;
+import io.github.eggy03.nautilus.windows.worker.utilities.WMIBooleanUtility;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

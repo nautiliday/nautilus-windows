@@ -9,7 +9,7 @@ import io.github.eggy03.cimari.entity.processor.Win32CacheMemory;
 import io.github.eggy03.cimari.entity.processor.Win32Processor;
 import io.github.eggy03.cimari.service.compounded.Win32ProcessorToCacheMemoryService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.ui.primary.constant.WMIConstants;
+import io.github.eggy03.nautilus.windows.worker.constant.WMIConstants;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
@@ -24,12 +24,12 @@ import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-import static io.github.eggy03.nautilus.windows.ui.primary.constant.WMIConstants.resolveWMIAvailability;
-import static io.github.eggy03.nautilus.windows.ui.primary.constant.WMIConstants.resolveWMICacheErrorCorrectType;
-import static io.github.eggy03.nautilus.windows.ui.primary.constant.WMIConstants.resolveWMICacheMemoryAssociativity;
-import static io.github.eggy03.nautilus.windows.ui.primary.constant.WMIConstants.resolveWMICacheMemoryLevel;
-import static io.github.eggy03.nautilus.windows.ui.primary.constant.WMIConstants.resolveWMICacheMemoryLocation;
-import static io.github.eggy03.nautilus.windows.ui.primary.constant.WMIConstants.resolveWMICacheMemoryType;
+import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMIAvailability;
+import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMICacheErrorCorrectType;
+import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMICacheMemoryAssociativity;
+import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMICacheMemoryLevel;
+import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMICacheMemoryLocation;
+import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMICacheMemoryType;
 
 @RequiredArgsConstructor
 @Slf4j

@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright (C) 2026 Egg-03
  */
-package io.github.eggy03.nautilus.windows.ui.primary.constant;
+package io.github.eggy03.nautilus.windows.worker.constant;
 
 import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.NotNull;

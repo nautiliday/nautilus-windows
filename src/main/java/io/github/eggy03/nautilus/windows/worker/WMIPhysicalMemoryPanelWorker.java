@@ -7,7 +7,7 @@ package io.github.eggy03.nautilus.windows.worker;
 import io.github.eggy03.cimari.entity.memory.Win32PhysicalMemory;
 import io.github.eggy03.cimari.service.memory.Win32PhysicalMemoryService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.ui.primary.utilities.WMISizeUtility;
+import io.github.eggy03.nautilus.windows.worker.utilities.WMISizeUtility;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,7 +20,7 @@ import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-import static io.github.eggy03.nautilus.windows.ui.primary.constant.WMIConstants.resolveWMIPhysicalMemoryFormFactor;
+import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMIPhysicalMemoryFormFactor;
 
 @RequiredArgsConstructor
 @Slf4j
