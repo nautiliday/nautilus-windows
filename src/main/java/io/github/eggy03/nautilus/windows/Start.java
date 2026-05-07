@@ -37,15 +37,10 @@ public class Start {
         log.info("java.home found at: {}", System.getProperty("java.home"));
 
 
-        ThemeManager themeManager = new ThemeManager(Start.class);
-
         log.info("Detected OS: {}", OSConstants.getCurrentOS());
         FlatLaf.registerCustomDefaultsSource("themes"); // for maven build, this points towards src/main/resources/themes
 
         EventQueue.invokeLater(()-> {
-            themeManager.loadAndApplyRegisteredThemeOrFallback(StandardDarkTheme.class.getName());
-            themeManager.loadAndApplyColorFilter();
-
             UIManagerConfigurations.enableRoundComponents();
             UIManagerConfigurations.enableTabSeparators(true);
             

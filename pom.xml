@@ -64,12 +64,6 @@
         </dependency>
 
         <dependency>
-            <groupId>io.github.eggy03</groupId>
-            <artifactId>swing-theme-manager</artifactId>
-            <version>${swing.theme.manager}</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>

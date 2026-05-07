@@ -5,8 +5,6 @@
 package io.github.eggy03.nautilus.windows.ui;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
-import io.github.eggy03.nautilus.windows.ui.secondary.AboutUI;
-import io.github.eggy03.nautilus.windows.ui.secondary.ThemeManagerUI;
 import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIMainboardPanelUI;
 import io.github.eggy03.nautilus.windows.ui.primary.panels.WMINetworkPanelUI;
 import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIOperatingSystemUI;
@@ -14,17 +12,18 @@ import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIPhysicalMemoryPane
 import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIProcessorPanelUI;
 import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIStoragePanelUI;
 import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIVideoControllerPanelUI;
+import io.github.eggy03.nautilus.windows.ui.secondary.AboutUI;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
-import javax.swing.JMenuItem;
 
 public class MainUI extends JFrame {
 
@@ -58,14 +57,6 @@ public class MainUI extends JFrame {
 		aboutMenuItem.addActionListener(event -> new AboutUI().setVisible(true));
 		helpMenu.add(aboutMenuItem);
 
-		JMenu appearanceMenu = new JMenu("Appearance");
-		menuBar.add(appearanceMenu);
-
-		JMenuItem themeMenuItem = new JMenuItem("Theme");
-		themeMenuItem.setIcon(new FlatSVGIcon(MainUI.class.getResource("/icons/general_icons/theme.svg")));
-		themeMenuItem.addActionListener(event -> new ThemeManagerUI().setVisible(true));
-		appearanceMenu.add(themeMenuItem);
-		
 		return menuBar;
 		
 	}
