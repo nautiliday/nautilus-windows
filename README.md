@@ -1,23 +1,6 @@
-# Nautilus
+# Nautilus Windows
 
-A cross-platform Java Swing based GUI application to view information about your hardware.
-
-# Cross-Platform Support
-
-### Windows
-
-- Uses Windows Management Instrumentation
-- Windows 10 and 11 are supported out of the box
-- Windows 7SP1, 8 and 8.1 need [Windows Management Framework 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616) to be installed. See [WMF availability across Windows Systems](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/wmf-overview?view=powershell-7.5#wmf-availability-across-windows-operating-systems)
-
-### Linux
-
-- Uses `dmidecode`
-- Any distribution is supported as long as `dmidecode` is or can be installed.
-
-### Mac
-
-- Planned
+Windows build of Nautilus
 
 # Download
 
@@ -41,13 +24,11 @@ is a viable option since your AV or Smart Screen filter wouldn't flag it.
 git clone https://github.com/eggy03/Nautilus.git
 cd Nautilus
 ```
-- Build the application depending on your platform
+- Build the application 
 ```shell
 ./mvnw -Pdist package jpackage:jpackage@win
 ```
-```shell
-./mvnw -Pdist package jpackage:jpackage@linux
-```
+
 The generated binaries will be available in `../Nautilus/target/output`
 
 Note that each subsequent build requires manually clearing out the target folder or else the build will fail
@@ -64,12 +45,6 @@ Note that each subsequent build requires manually clearing out the target folder
 A modified build of Nautilus with hidden Hardware ID and Processor ID, running on Windows 11 24H2
 
 <img width="850" height="640" alt="Screenshot 2026-04-07 122534" src="https://github.com/user-attachments/assets/79bcb6bf-ea05-4c85-9e2f-5b27a5d57208" />
-
-### Linux
-
-A modified build of Nautilus with hidden System UUID and Processor ID, running on Bazzite 43, a Fedora based distribution and using dmidecode 3.6
-
-<img width="850" height="640" alt="Screenshot_20260408_200545" src="https://github.com/user-attachments/assets/f0c95572-9232-420f-aec3-cd335d7b5aed" />
 
 # License
 
