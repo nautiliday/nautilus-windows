@@ -15,7 +15,7 @@ public enum OSConstants {
 
     private static boolean isWindows() {
 
-        if(SystemUtils.IS_OS_WINDOWS) {
+        if (SystemUtils.IS_OS_WINDOWS) {
             return SystemUtils.IS_OS_WINDOWS_7 || SystemUtils.IS_OS_WINDOWS_8 ||
                     SystemUtils.IS_OS_WINDOWS_10 || SystemUtils.IS_OS_WINDOWS_11;
         }
@@ -33,7 +33,7 @@ public enum OSConstants {
     }
 
     public static OSConstants detectOs() {
-        if(isWindows()) {
+        if (isWindows()) {
             return WINDOWS;
         } else if (isLinux()) {
             return LINUX;

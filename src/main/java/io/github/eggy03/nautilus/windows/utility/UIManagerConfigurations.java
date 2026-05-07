@@ -15,23 +15,23 @@ import java.awt.Insets;
 @UtilityClass
 public class UIManagerConfigurations {
 
-	public static void enableRoundComponents() {
-		UIManager.put( "Button.arc", 999 );
-		UIManager.put( "Component.arc", 999 );
-		UIManager.put( "ProgressBar.arc", 999 );
-		UIManager.put( "TextComponent.arc", 999 );
-		
-		UIManager.put( "ScrollBar.thumbArc", 999 );
-		UIManager.put( "ScrollBar.thumbInsets", new Insets( 2, 2, 2, 2 ) );
-		
-		UIManager.put( "ScrollBar.trackArc", 999 );
-		UIManager.put( "ScrollBar.thumbArc", 999 );
-		UIManager.put( "ScrollBar.trackInsets", new Insets( 2, 4, 2, 4 ) );
-		UIManager.put( "ScrollBar.thumbInsets", new Insets( 2, 2, 2, 2 ) );
-	}
-	
-	public static void enableTabSeparators(boolean value) {
-		UIManager.put( "TabbedPane.showTabSeparators", value );
-		UIManager.put( "TabbedPane.tabSeparatorsFullHeight", value );
-	}
+    public static void enableRoundComponents() {
+        UIManager.put("Button.arc", 999);
+        UIManager.put("Component.arc", 999);
+        UIManager.put("ProgressBar.arc", 999);
+        UIManager.put("TextComponent.arc", 999);
+
+        UIManager.put("ScrollBar.thumbArc", 999);
+        UIManager.put("ScrollBar.thumbInsets", new Insets(2, 2, 2, 2));
+
+        UIManager.put("ScrollBar.trackArc", 999);
+        UIManager.put("ScrollBar.thumbArc", 999);
+        UIManager.put("ScrollBar.trackInsets", new Insets(2, 4, 2, 4));
+        UIManager.put("ScrollBar.thumbInsets", new Insets(2, 2, 2, 2));
+    }
+
+    public static void enableTabSeparators(boolean value) {
+        UIManager.put("TabbedPane.showTabSeparators", value);
+        UIManager.put("TabbedPane.tabSeparatorsFullHeight", value);
+    }
 }

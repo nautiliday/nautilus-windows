@@ -53,7 +53,7 @@ public class WMIValueResolver {
     //Win32_Processor
     @NotNull
     public static String resolveProcessorArchitecture(@Nullable Integer architecture) {
-        return switch (architecture){
+        return switch (architecture) {
             case 0 -> "x86";
             case 1 -> "MIPS";
             case 2 -> "Alpha";
@@ -63,7 +63,7 @@ public class WMIValueResolver {
             case 9 -> "x64";
             case 12 -> "ARM64";
             case null -> NOT_AVAILABLE;
-            default -> NOT_RESOLVED+architecture;
+            default -> NOT_RESOLVED + architecture;
         };
     }
 
@@ -72,13 +72,13 @@ public class WMIValueResolver {
     public static String resolveWMICacheMemoryType(@Nullable Integer cacheType) {
 
         return switch (cacheType) {
-            case 1-> "Other";
-            case 2-> "Unknown";
-            case 3-> "Instruction";
-            case 4-> "Data";
-            case 5-> "Unified";
+            case 1 -> "Other";
+            case 2 -> "Unknown";
+            case 3 -> "Instruction";
+            case 4 -> "Data";
+            case 5 -> "Unified";
             case null -> NOT_AVAILABLE;
-            default -> NOT_RESOLVED+cacheType;
+            default -> NOT_RESOLVED + cacheType;
         };
     }
 
@@ -86,14 +86,14 @@ public class WMIValueResolver {
     public static String resolveWMICacheMemoryLevel(@Nullable Integer cacheLevel) {
 
         return switch (cacheLevel) {
-            case 1-> "Other";
-            case 2-> "Unknown";
-            case 3-> "Primary (L1)";
-            case 4-> "Secondary (L2)";
-            case 5-> "Tertiary (L3)";
-            case 6-> "Not Applicable";
+            case 1 -> "Other";
+            case 2 -> "Unknown";
+            case 3 -> "Primary (L1)";
+            case 4 -> "Secondary (L2)";
+            case 5 -> "Tertiary (L3)";
+            case 6 -> "Not Applicable";
             case null -> NOT_AVAILABLE;
-            default -> NOT_RESOLVED +cacheLevel;
+            default -> NOT_RESOLVED + cacheLevel;
         };
     }
 
@@ -101,16 +101,16 @@ public class WMIValueResolver {
     public static String resolveWMICacheMemoryAssociativity(@Nullable Integer associativity) {
 
         return switch (associativity) {
-            case 1-> "Other";
-            case 2-> "Unknown";
-            case 3-> "Direct Mapped";
-            case 4-> "2-way Set-Associative";
-            case 5-> "4-way Set-Associative";
-            case 6-> "Fully Associative";
-            case 7-> "8-way Set-Associative";
-            case 8-> "16-way Set-Associative";
+            case 1 -> "Other";
+            case 2 -> "Unknown";
+            case 3 -> "Direct Mapped";
+            case 4 -> "2-way Set-Associative";
+            case 5 -> "4-way Set-Associative";
+            case 6 -> "Fully Associative";
+            case 7 -> "8-way Set-Associative";
+            case 8 -> "16-way Set-Associative";
             case null -> NOT_AVAILABLE;
-            default -> NOT_RESOLVED +associativity;
+            default -> NOT_RESOLVED + associativity;
         };
     }
 
@@ -118,12 +118,12 @@ public class WMIValueResolver {
     public static String resolveWMICacheMemoryLocation(@Nullable Integer location) {
 
         return switch (location) {
-            case 0-> "Internal";
-            case 1-> "External";
-            case 2-> "Reserved";
-            case 3-> "Unknown";
+            case 0 -> "Internal";
+            case 1 -> "External";
+            case 2 -> "Reserved";
+            case 3 -> "Unknown";
             case null -> NOT_AVAILABLE;
-            default -> NOT_RESOLVED +location;
+            default -> NOT_RESOLVED + location;
         };
     }
 
@@ -139,7 +139,7 @@ public class WMIValueResolver {
             case 5 -> "Single-bit ECC";
             case 6 -> "Multi-bit ECC";
             case null -> NOT_AVAILABLE;
-            default -> NOT_RESOLVED +errorCorrectType;
+            default -> NOT_RESOLVED + errorCorrectType;
         };
     }
 
@@ -148,32 +148,32 @@ public class WMIValueResolver {
     public static String resolveWMIPhysicalMemoryFormFactor(@Nullable Integer formFactor) {
 
         return switch (formFactor) {
-            case 0-> "Unknown";
-            case 1-> "Other";
-            case 2-> "SIP";
-            case 3-> "DIP";
-            case 4-> "ZIP";
-            case 5-> "SOJ";
-            case 6-> "Proprietary";
-            case 7-> "SIMM";
-            case 8-> "DIMM";
-            case 9-> "TSOP";
-            case 10-> "PGA";
-            case 11-> "RIMM";
-            case 12-> "SODIMM";
-            case 13-> "SRIMM";
-            case 14-> "SMD";
-            case 15-> "SSMP";
-            case 16-> "QFP";
-            case 17-> "TQFP";
-            case 18-> "SOIC";
-            case 19-> "LCC";
-            case 20-> "PLCC";
-            case 21-> "BGA";
-            case 22-> "FPBGA";
-            case 23-> "LGA";
+            case 0 -> "Unknown";
+            case 1 -> "Other";
+            case 2 -> "SIP";
+            case 3 -> "DIP";
+            case 4 -> "ZIP";
+            case 5 -> "SOJ";
+            case 6 -> "Proprietary";
+            case 7 -> "SIMM";
+            case 8 -> "DIMM";
+            case 9 -> "TSOP";
+            case 10 -> "PGA";
+            case 11 -> "RIMM";
+            case 12 -> "SODIMM";
+            case 13 -> "SRIMM";
+            case 14 -> "SMD";
+            case 15 -> "SSMP";
+            case 16 -> "QFP";
+            case 17 -> "TQFP";
+            case 18 -> "SOIC";
+            case 19 -> "LCC";
+            case 20 -> "PLCC";
+            case 21 -> "BGA";
+            case 22 -> "FPBGA";
+            case 23 -> "LGA";
             case null -> NOT_AVAILABLE;
-            default -> NOT_RESOLVED +formFactor;
+            default -> NOT_RESOLVED + formFactor;
         };
     }
 
@@ -182,16 +182,16 @@ public class WMIValueResolver {
     public static String resolveWMIPortType(@Nullable Integer portType) {
 
         return switch (portType) {
-            case 0  -> "None";
-            case 1  -> "Parallel Port XT/AT Compatible";
-            case 2  -> "Parallel Port PS/2";
-            case 3  -> "Parallel Port ECP";
-            case 4  -> "Parallel Port EPP";
-            case 5  -> "Parallel Port ECP/EPP";
-            case 6  -> "Serial Port XT/AT Compatible";
-            case 7  -> "Serial Port 16450 Compatible";
-            case 8  -> "Serial Port 16550 Compatible";
-            case 9  -> "Serial Port 16550A Compatible";
+            case 0 -> "None";
+            case 1 -> "Parallel Port XT/AT Compatible";
+            case 2 -> "Parallel Port PS/2";
+            case 3 -> "Parallel Port ECP";
+            case 4 -> "Parallel Port EPP";
+            case 5 -> "Parallel Port ECP/EPP";
+            case 6 -> "Serial Port XT/AT Compatible";
+            case 7 -> "Serial Port 16450 Compatible";
+            case 8 -> "Serial Port 16550 Compatible";
+            case 9 -> "Serial Port 16550A Compatible";
             case 10 -> "SCSI Port";
             case 11 -> "MIDI Port";
             case 12 -> "Joy Stick Port";
@@ -217,7 +217,7 @@ public class WMIValueResolver {
             case 32 -> "8251 Compatible";
             case 33 -> "8251 FIFO Compatible";
             case null -> NOT_AVAILABLE;
-            default -> NOT_RESOLVED +portType;
+            default -> NOT_RESOLVED + portType;
         };
     }
 
@@ -249,7 +249,7 @@ public class WMIValueResolver {
             case 0 -> "Unknown";
             case 1 -> "Connected";
             case 2 -> "Disconnected";
-            default -> NOT_RESOLVED +mediaConnectState;
+            default -> NOT_RESOLVED + mediaConnectState;
         };
     }
 
@@ -261,7 +261,7 @@ public class WMIValueResolver {
             case 1 -> "Unicast";
             case 2 -> "Anycast";
             case null -> NOT_AVAILABLE;
-            default -> NOT_RESOLVED +type;
+            default -> NOT_RESOLVED + type;
         };
     }
 
@@ -278,7 +278,7 @@ public class WMIValueResolver {
             case 2 -> "Well Known";
             case 3 -> "DHCP";
             case 4 -> "Router Advertisement";
-            default -> NOT_RESOLVED +prefixOrigin.intValue();
+            default -> NOT_RESOLVED + prefixOrigin.intValue();
         };
     }
 
@@ -296,7 +296,7 @@ public class WMIValueResolver {
             case 3 -> "DHCP";
             case 4 -> "Link";
             case 5 -> "Random";
-            default -> NOT_RESOLVED +suffixOrigin.intValue();
+            default -> NOT_RESOLVED + suffixOrigin.intValue();
         };
     }
 
@@ -312,7 +312,7 @@ public class WMIValueResolver {
             case 0 -> "Public";
             case 1 -> "Private";
             case 2 -> "Domain Authenticated";
-            default -> NOT_RESOLVED +networkCategory.intValue();
+            default -> NOT_RESOLVED + networkCategory.intValue();
         };
     }
 
@@ -328,7 +328,7 @@ public class WMIValueResolver {
             case 0 -> "None";
             case 1 -> "LDAP";
             case 2 -> "TLS";
-            default -> NOT_RESOLVED +domainAuthenticationKind.intValue();
+            default -> NOT_RESOLVED + domainAuthenticationKind.intValue();
         };
     }
 
@@ -345,7 +345,7 @@ public class WMIValueResolver {
             case 2 -> "Subnet";
             case 3 -> "Local Network";
             case 4 -> "Internet";
-            default -> NOT_RESOLVED +connectivity;
+            default -> NOT_RESOLVED + connectivity;
         };
     }
 
@@ -365,7 +365,7 @@ public class WMIValueResolver {
             case 4 -> "Network Drive";
             case 5 -> "Compact Disc";
             case 6 -> "RAM Disk";
-            default -> NOT_RESOLVED +driveType;
+            default -> NOT_RESOLVED + driveType;
         };
     }
 
@@ -377,16 +377,16 @@ public class WMIValueResolver {
         }
 
         return switch (mediaType.intValue()) {
-            case 0  -> "Unknown format";
-            case 1  -> "5.25 inch floppy (1.2 MB, 512 bytes/sector)";
-            case 2  -> "3.5 inch floppy (1.44 MB, 512 bytes/sector)";
-            case 3  -> "3.5 inch floppy (2.88 MB, 512 bytes/sector)";
-            case 4  -> "3.5 inch floppy (20.8 MB, 512 bytes/sector)";
-            case 5  -> "3.5 inch floppy (720 KB, 512 bytes/sector)";
-            case 6  -> "5.25 inch floppy (360 KB, 512 bytes/sector)";
-            case 7  -> "5.25 inch floppy (320 KB, 512 bytes/sector)";
-            case 8  -> "5.25 inch floppy (320 KB, 1024 bytes/sector)";
-            case 9  -> "5.25 inch floppy (180 KB, 512 bytes/sector)";
+            case 0 -> "Unknown format";
+            case 1 -> "5.25 inch floppy (1.2 MB, 512 bytes/sector)";
+            case 2 -> "3.5 inch floppy (1.44 MB, 512 bytes/sector)";
+            case 3 -> "3.5 inch floppy (2.88 MB, 512 bytes/sector)";
+            case 4 -> "3.5 inch floppy (20.8 MB, 512 bytes/sector)";
+            case 5 -> "3.5 inch floppy (720 KB, 512 bytes/sector)";
+            case 6 -> "5.25 inch floppy (360 KB, 512 bytes/sector)";
+            case 7 -> "5.25 inch floppy (320 KB, 512 bytes/sector)";
+            case 8 -> "5.25 inch floppy (320 KB, 1024 bytes/sector)";
+            case 9 -> "5.25 inch floppy (180 KB, 512 bytes/sector)";
             case 10 -> "5.25 inch floppy (160 KB, 512 bytes/sector)";
             case 11 -> "Removable Media (non-floppy)";
             case 12 -> "Fixed Hard Disk Media";
@@ -400,7 +400,7 @@ public class WMIValueResolver {
             case 20 -> "3.5 inch floppy (128 MB, 512 bytes/sector)";
             case 21 -> "3.5 inch floppy (230 MB, 512 bytes/sector)";
             case 22 -> "8 inch floppy (256 KB, 128 bytes/sector)";
-            default -> NOT_RESOLVED +mediaType;
+            default -> NOT_RESOLVED + mediaType;
         };
     }
 
@@ -419,7 +419,7 @@ public class WMIValueResolver {
             case 8 -> "Unknown";
             case 9 -> "Computer";
             case null -> NOT_AVAILABLE;
-            default -> NOT_RESOLVED +sidType;
+            default -> NOT_RESOLVED + sidType;
         };
     }
 
@@ -431,12 +431,12 @@ public class WMIValueResolver {
         }
 
         return switch (accountType.intValue()) {
-            case 256  -> "Temporary Duplicate Account";
-            case 512  -> "Normal Account";
+            case 256 -> "Temporary Duplicate Account";
+            case 512 -> "Normal Account";
             case 2048 -> "Interdomain Trust Account";
             case 4096 -> "Workstation Trust Account";
             case 8192 -> "Server Trust Account";
-            default -> NOT_RESOLVED +accountType.intValue();
+            default -> NOT_RESOLVED + accountType.intValue();
         };
     }
 
@@ -446,15 +446,15 @@ public class WMIValueResolver {
     public static String resolveWMIAvailability(@Nullable Integer availability) {
 
         return switch (availability) {
-            case 1  -> "Other";
-            case 2  -> "Unknown";
-            case 3  -> "Running / Full Power";
-            case 4  -> "Warning";
-            case 5  -> "In Test";
-            case 6  -> "Not Applicable";
-            case 7  -> "Power Off";
-            case 8  -> "Offline";
-            case 9  -> "Off-duty";
+            case 1 -> "Other";
+            case 2 -> "Unknown";
+            case 3 -> "Running / Full Power";
+            case 4 -> "Warning";
+            case 5 -> "In Test";
+            case 6 -> "Not Applicable";
+            case 7 -> "Power Off";
+            case 8 -> "Offline";
+            case 9 -> "Off-duty";
             case 10 -> "Degraded";
             case 11 -> "Not Installed";
             case 12 -> "Install Error";
@@ -468,7 +468,7 @@ public class WMIValueResolver {
             case 20 -> "Not Configured";
             case 21 -> "Quiesced";
             case null -> NOT_AVAILABLE;
-            default -> NOT_RESOLVED +availability;
+            default -> NOT_RESOLVED + availability;
         };
     }
 }

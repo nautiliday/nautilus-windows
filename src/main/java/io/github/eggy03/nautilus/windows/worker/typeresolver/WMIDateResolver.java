@@ -24,13 +24,13 @@ public class WMIDateResolver {
      *
      * @param epochDate the WMI date string to resolve
      * @return the formatted local date-time string,
-     *         or {@code "N/A"} if the input is null or blank
+     * or {@code "N/A"} if the input is null or blank
      * @throws NumberFormatException if the extracted epoch value
-     *         cannot be parsed as a valid long
+     *                               cannot be parsed as a valid long
      */
-    public static String toLocalDateTime (String epochDate) {
+    public static String toLocalDateTime(String epochDate) {
 
-        if(epochDate==null || epochDate.isBlank())
+        if (epochDate == null || epochDate.isBlank())
             return "N/A";
 
         // some WMI date values are like this: "/Date(1703462400000)/" so stripping is required

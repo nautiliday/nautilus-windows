@@ -8,19 +8,19 @@ import com.formdev.flatlaf.FlatDarkLaf;
 
 public class StandardDarkTheme extends FlatDarkLaf {
 
-	public static final String NAME = "StandardDarkTheme";
+    public static final String NAME = "StandardDarkTheme";
 
-	public static boolean setup() {
-		return setup( new StandardDarkTheme() );
-	}
+    public static boolean setup() {
+        return setup(new StandardDarkTheme());
+    }
 
-	public static void installLafInfo() {
-		installLafInfo( NAME, StandardDarkTheme.class );
-	}
+    public static void installLafInfo() {
+        installLafInfo(NAME, StandardDarkTheme.class);
+    }
 
-	@Override
-	public String getName() {
-		return NAME;
-	}
-	
+    @Override
+    public String getName() {
+        return NAME;
+    }
+
 }

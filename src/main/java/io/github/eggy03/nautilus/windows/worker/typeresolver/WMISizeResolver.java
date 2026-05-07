@@ -51,15 +51,15 @@ public class WMISizeResolver {
      *
      * @param bytes the size value in bytes
      * @return the formatted size in MB,
-     *         or {@code "N/A"} if the value is null
+     * or {@code "N/A"} if the value is null
      */
     @NotNull
-    public static String toMBString (Long bytes) {
-        if(bytes==null)
+    public static String toMBString(Long bytes) {
+        if (bytes == null)
             return "N/A";
 
         BigDecimal decimal = new BigDecimal(bytes).divide(BYTES_PER_MB, SCALE, ROUNDING_MODE);
-        return decimal+" MB";
+        return decimal + " MB";
     }
 
     /**
@@ -71,15 +71,15 @@ public class WMISizeResolver {
      *
      * @param bytes the size value in bytes
      * @return the formatted size in MB,
-     *         or {@code "N/A"} if the value is null
+     * or {@code "N/A"} if the value is null
      */
     @NotNull
     public static String toMBString(BigInteger bytes) {
-        if(bytes==null)
+        if (bytes == null)
             return "N/A";
 
         BigDecimal decimal = new BigDecimal(bytes).divide(BYTES_PER_MB, SCALE, ROUNDING_MODE);
-        return decimal+" MB";
+        return decimal + " MB";
     }
 
     /**
@@ -95,15 +95,15 @@ public class WMISizeResolver {
      *
      * @param bytes the size value in bytes
      * @return the formatted size in GB,
-     *         or {@code "N/A"} if the value is null
+     * or {@code "N/A"} if the value is null
      */
     @NotNull
     public static String toGBString(Long bytes) {
-        if(bytes==null)
+        if (bytes == null)
             return "N/A";
 
         BigDecimal decimal = new BigDecimal(bytes).divide(BYTES_PER_GB, SCALE, ROUNDING_MODE);
-        return decimal+" GB";
+        return decimal + " GB";
     }
 
     /**
@@ -115,14 +115,14 @@ public class WMISizeResolver {
      *
      * @param bytes the size value in bytes
      * @return the formatted size in GB,
-     *         or {@code "N/A"} if the value is null
+     * or {@code "N/A"} if the value is null
      */
     @NotNull
     public static String toGBString(BigInteger bytes) {
-        if(bytes==null)
+        if (bytes == null)
             return "N/A";
 
         BigDecimal decimal = new BigDecimal(bytes).divide(BYTES_PER_GB, SCALE, ROUNDING_MODE);
-        return decimal+" GB";
+        return decimal + " GB";
     }
 }

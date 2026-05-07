@@ -30,138 +30,138 @@ import java.util.Objects;
 
 public class AboutUI extends JFrame {
 
-	private static final String VERSION_AND_AUTHOR =
-			"Version: " + Version.SEMVER + Version.SUFFIX
-			+ System.lineSeparator()
-			+ "Build: " + Version.BUILD_DATE
-			+ System.lineSeparator()
-			+ "Developer: " + Version.DEVELOPER
-			+ System.lineSeparator()
-			+ "License: " + Version.LICENSE;
+    private static final String VERSION_AND_AUTHOR =
+            "Version: " + Version.SEMVER + Version.SUFFIX
+                    + System.lineSeparator()
+                    + "Build: " + Version.BUILD_DATE
+                    + System.lineSeparator()
+                    + "Developer: " + Version.DEVELOPER
+                    + System.lineSeparator()
+                    + "License: " + Version.LICENSE;
 
-	private static final String ATTRIBUTION = """	
-			<b>Open-Source Licenses</b><br>
-			This application includes the following third-party open-source libraries and frameworks:
-			<ul>
-			  <li>cimari</li>
-			  <li>dmidecode4j</li>
-			  <li>Swing Theme Manager</li>
-			  <li>Apache Commons Lang</li>
-			  <li>Apache Commons IO</li>
-			  <li>FlatLaf</li>
-			  <li>JSVG</li>
-			  <li>SLF4J</li>
-			  <li>Tinylog</li>
-			  <li>Project Lombok</li>
-			  <li>MigLayout Layout Manager for Swing</li>
-			</ul>
-			Full license texts are included with this distribution and are also
-			available online on the project's GitHub page.<br><br>
-			
-			<b>Source Code</b><br>
-			The source code for this application is available on GitHub.<br><br>
-			
-			<b>Icons</b><br>
-			This application uses icons from Google Material Design Icons,
-			licensed under the Apache License, Version 2.0.<br><br>
-			
-			<b>Security Notice</b><br>
-			This application binary is currently unsigned, and no official pre-built binaries are distributed.
-			Users are strongly encouraged to build the application from source.
-			If you choose to use a pre-built binary, ensure that it originates from a trusted and verified source.
-			""";
+    private static final String ATTRIBUTION = """	
+            <b>Open-Source Licenses</b><br>
+            This application includes the following third-party open-source libraries and frameworks:
+            <ul>
+              <li>cimari</li>
+              <li>dmidecode4j</li>
+              <li>Swing Theme Manager</li>
+              <li>Apache Commons Lang</li>
+              <li>Apache Commons IO</li>
+              <li>FlatLaf</li>
+              <li>JSVG</li>
+              <li>SLF4J</li>
+              <li>Tinylog</li>
+              <li>Project Lombok</li>
+              <li>MigLayout Layout Manager for Swing</li>
+            </ul>
+            Full license texts are included with this distribution and are also
+            available online on the project's GitHub page.<br><br>
+            
+            <b>Source Code</b><br>
+            The source code for this application is available on GitHub.<br><br>
+            
+            <b>Icons</b><br>
+            This application uses icons from Google Material Design Icons,
+            licensed under the Apache License, Version 2.0.<br><br>
+            
+            <b>Security Notice</b><br>
+            This application binary is currently unsigned, and no official pre-built binaries are distributed.
+            Users are strongly encouraged to build the application from source.
+            If you choose to use a pre-built binary, ensure that it originates from a trusted and verified source.
+            """;
 
-	public AboutUI() {
-		setTitle("About Nautilus");
-		
-		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 550, 400);
-		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(AboutUI.class.getResource("/icons/icon_main.png")));
-		
-		JPanel contentPane = new JPanel();
-		contentPane.setLayout(new MigLayout("insets 0", "[grow]", "[][][grow]"));
+    public AboutUI() {
+        setTitle("About Nautilus");
 
-		contentPane.add(createMenu(), "cell 0 0, growx");
-		contentPane.add(createVersionPanel(), "cell 0 1, growx");
-		contentPane.add(createAttributionPanel(), "cell 0 2, growx");
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        setBounds(100, 100, 550, 400);
+        setResizable(false);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(AboutUI.class.getResource("/icons/icon_main.png")));
 
-		setContentPane(contentPane);
-	}
-	
-	private JPanel createVersionPanel() {
-		
-		JPanel versionPanel = new JPanel();
-		versionPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Version Info", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		versionPanel.setLayout(new MigLayout("insets 0", "[grow][]", "[]"));
-		
-		JTextArea versionTextArea = new JTextArea();
-		versionTextArea.setText(VERSION_AND_AUTHOR);
-		versionTextArea.setEditable(false);
-		versionPanel.add(versionTextArea, "cell 0 0,growx");
-		
-		JLabel appLogoLabel = new JLabel("");
-		appLogoLabel.setIcon(new FlatSVGIcon(AboutUI.class.getResource("/icons/icon_main.svg")));
-		versionPanel.add(appLogoLabel, "cell 1 0,alignx center");
-		
-		return versionPanel;
-	}
-	
-	private JPanel createAttributionPanel() {
-		
-		JPanel attributionPanel = new JPanel();
-		attributionPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Attribution", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		attributionPanel.setLayout(new GridLayout(1, 1, 0, 0));
+        JPanel contentPane = new JPanel();
+        contentPane.setLayout(new MigLayout("insets 0", "[grow]", "[][][grow]"));
 
-		JEditorPane attributionEditorPane = new JEditorPane();
+        contentPane.add(createMenu(), "cell 0 0, growx");
+        contentPane.add(createVersionPanel(), "cell 0 1, growx");
+        contentPane.add(createAttributionPanel(), "cell 0 2, growx");
+
+        setContentPane(contentPane);
+    }
+
+    private JPanel createVersionPanel() {
+
+        JPanel versionPanel = new JPanel();
+        versionPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Version Info", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+        versionPanel.setLayout(new MigLayout("insets 0", "[grow][]", "[]"));
+
+        JTextArea versionTextArea = new JTextArea();
+        versionTextArea.setText(VERSION_AND_AUTHOR);
+        versionTextArea.setEditable(false);
+        versionPanel.add(versionTextArea, "cell 0 0,growx");
+
+        JLabel appLogoLabel = new JLabel("");
+        appLogoLabel.setIcon(new FlatSVGIcon(AboutUI.class.getResource("/icons/icon_main.svg")));
+        versionPanel.add(appLogoLabel, "cell 1 0,alignx center");
+
+        return versionPanel;
+    }
+
+    private JPanel createAttributionPanel() {
+
+        JPanel attributionPanel = new JPanel();
+        attributionPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Attribution", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+        attributionPanel.setLayout(new GridLayout(1, 1, 0, 0));
+
+        JEditorPane attributionEditorPane = new JEditorPane();
         attributionEditorPane.setEditable(false);
         attributionEditorPane.setContentType("text/html");
-		attributionEditorPane.setText(ATTRIBUTION);
-     
+        attributionEditorPane.setText(ATTRIBUTION);
+
         attributionPanel.add(new JScrollPane(attributionEditorPane));
-        
+
         return attributionPanel;
     }
-	
-	private JMenuBar createMenu() {
-		
-		JMenuBar menuBar = new JMenuBar();
-		
-		JMenu attributionMenu = new JMenu("More Info");
-		menuBar.add(attributionMenu);
-		
-		JMenuItem visitGithub = new JMenuItem("Visit Nautilus GitHub");
-		visitGithub.addActionListener(action -> {
-			try {
+
+    private JMenuBar createMenu() {
+
+        JMenuBar menuBar = new JMenuBar();
+
+        JMenu attributionMenu = new JMenu("More Info");
+        menuBar.add(attributionMenu);
+
+        JMenuItem visitGithub = new JMenuItem("Visit Nautilus GitHub");
+        visitGithub.addActionListener(action -> {
+            try {
                 Desktop.getDesktop().browse(URI.create(Version.GITHUB_PAGE));
             } catch (IOException | UnsupportedOperationException e) {
                 new ExceptionUI("Could not open browser", e.getMessage());
             }
-		});
-		attributionMenu.add(visitGithub);
-		
-		JMenuItem privacyPolicy = new JMenuItem("Privacy Policy");
-		privacyPolicy.addActionListener(action-> {
-			InputStream stream = Objects.requireNonNull(AboutUI.class.getResourceAsStream("/PrivacyPolicy.txt"), "Privacy Policy Stream must not be null");
-			new TextViewUI("Privacy Policy", stream).setVisible(true);
-		});
-		attributionMenu.add(privacyPolicy);
-		
-		JMenuItem applicationLicense = new JMenuItem("License");
-		applicationLicense.addActionListener(action-> {
-			InputStream stream = Objects.requireNonNull(AboutUI.class.getResourceAsStream("/ApplicationLicense.txt"), "Application License Stream must not be null");
-			new TextViewUI("Application License", stream).setVisible(true);
-		});
-		attributionMenu.add(applicationLicense);
-		
-		JMenuItem openSourceLicenses = new JMenuItem("Open Source Licenses");
-		openSourceLicenses.addActionListener(action-> {
-			InputStream stream = Objects.requireNonNull(AboutUI.class.getResourceAsStream("/OpenSourceLicenses.txt"), "License Stream must not be null");
-			new TextViewUI("Third Party Software Licenses", stream).setVisible(true);
         });
-		attributionMenu.add(openSourceLicenses);
-		
-		return menuBar;
-	}
+        attributionMenu.add(visitGithub);
+
+        JMenuItem privacyPolicy = new JMenuItem("Privacy Policy");
+        privacyPolicy.addActionListener(action -> {
+            InputStream stream = Objects.requireNonNull(AboutUI.class.getResourceAsStream("/PrivacyPolicy.txt"), "Privacy Policy Stream must not be null");
+            new TextViewUI("Privacy Policy", stream).setVisible(true);
+        });
+        attributionMenu.add(privacyPolicy);
+
+        JMenuItem applicationLicense = new JMenuItem("License");
+        applicationLicense.addActionListener(action -> {
+            InputStream stream = Objects.requireNonNull(AboutUI.class.getResourceAsStream("/ApplicationLicense.txt"), "Application License Stream must not be null");
+            new TextViewUI("Application License", stream).setVisible(true);
+        });
+        attributionMenu.add(applicationLicense);
+
+        JMenuItem openSourceLicenses = new JMenuItem("Open Source Licenses");
+        openSourceLicenses.addActionListener(action -> {
+            InputStream stream = Objects.requireNonNull(AboutUI.class.getResourceAsStream("/OpenSourceLicenses.txt"), "License Stream must not be null");
+            new TextViewUI("Third Party Software Licenses", stream).setVisible(true);
+        });
+        attributionMenu.add(openSourceLicenses);
+
+        return menuBar;
+    }
 
 }

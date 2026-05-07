@@ -34,10 +34,10 @@ public class WMIBooleanResolver {
      */
     @NotNull
     public static String resolveBoolean(@Nullable Boolean value) {
-        if(value==null)
+        if (value == null)
             return "N/A";
 
-        if(value)
+        if (value)
             return "Yes";
         else return "No";
     }

@@ -44,17 +44,17 @@ public class WMINetworkResolver {
      *
      * @param speedInBitsPerSecond the raw network speed in bits per second
      * @return the formatted speed in Mbps,
-     *         or {@code "N/A"} if the value is null
+     * or {@code "N/A"} if the value is null
      */
     @NotNull
     public static String resolveNetworkSpeedInMbps(@Nullable Long speedInBitsPerSecond) {
-        if(speedInBitsPerSecond==null)
+        if (speedInBitsPerSecond == null)
             return "N/A";
 
         // Decimal conversion:
         // 1 Mbps = 1,000,000 bits per second
         BigDecimal mbpsDivisor = new BigDecimal(1_000_000L); // to Mbps
         BigDecimal speed = BigDecimal.valueOf(speedInBitsPerSecond);
-        return speed.divide(mbpsDivisor, 2, RoundingMode.HALF_UP)+" Mbps";
+        return speed.divide(mbpsDivisor, 2, RoundingMode.HALF_UP) + " Mbps";
     }
 }

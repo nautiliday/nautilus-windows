@@ -10,9 +10,9 @@ import io.github.eggy03.cimari.entity.storage.Win32DiskPartition;
 import io.github.eggy03.cimari.entity.storage.Win32LogicalDisk;
 import io.github.eggy03.cimari.service.compounded.Win32DiskDriveToPartitionAndLogicalDiskService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver;
 import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIBooleanResolver;
 import io.github.eggy03.nautilus.windows.worker.typeresolver.WMISizeResolver;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
