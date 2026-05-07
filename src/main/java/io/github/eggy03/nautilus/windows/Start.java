@@ -5,11 +5,11 @@
 package io.github.eggy03.nautilus.windows;
 
 import com.formdev.flatlaf.FlatLaf;
-import io.github.eggy03.nautilus.windows.common.constant.OSConstants;
-import io.github.eggy03.nautilus.windows.common.themes.StandardDarkTheme;
-import io.github.eggy03.nautilus.windows.common.ui.ExceptionUI;
-import io.github.eggy03.nautilus.windows.common.utilities.UIManagerConfigurations;
-import io.github.eggy03.nautilus.windows.windows.WindowsUI;
+import io.github.eggy03.nautilus.windows.constant.OSConstants;
+import io.github.eggy03.nautilus.windows.ui.themes.StandardDarkTheme;
+import io.github.eggy03.nautilus.windows.ui.secondary.ExceptionUI;
+import io.github.eggy03.nautilus.windows.utility.UIManagerConfigurations;
+import io.github.eggy03.nautilus.windows.ui.MainUI;
 import io.github.eggy03.theme.manager.ThemeManager;
 import lombok.extern.slf4j.Slf4j;
 
@@ -55,7 +55,7 @@ public class Start {
 
     private static void launchUIBasedOnOS() {
         if (Objects.requireNonNull(OSConstants.detectOs()) == OSConstants.WINDOWS) {
-            new WindowsUI().setVisible(true);
+            new MainUI().setVisible(true);
         } else {
             new ExceptionUI("Unsupported OS", OSConstants.getCurrentOS() + " is not supported");
         }
