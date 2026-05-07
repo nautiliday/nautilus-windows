@@ -33,8 +33,6 @@ public class AboutUI extends JFrame {
     private static final String VERSION_AND_AUTHOR =
             "Version: " + Version.SEMVER + Version.SUFFIX
                     + System.lineSeparator()
-                    + "Build: " + Version.BUILD_DATE
-                    + System.lineSeparator()
                     + "Developer: " + Version.DEVELOPER
                     + System.lineSeparator()
                     + "License: " + Version.LICENSE;
@@ -44,8 +42,6 @@ public class AboutUI extends JFrame {
             This application includes the following third-party open-source libraries and frameworks:
             <ul>
               <li>cimari</li>
-              <li>dmidecode4j</li>
-              <li>Swing Theme Manager</li>
               <li>Apache Commons Lang</li>
               <li>Apache Commons IO</li>
               <li>FlatLaf</li>
