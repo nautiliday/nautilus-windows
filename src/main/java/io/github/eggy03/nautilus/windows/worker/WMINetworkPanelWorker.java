@@ -11,9 +11,9 @@ import io.github.eggy03.cimari.entity.network.MsftNetConnectionProfile;
 import io.github.eggy03.cimari.entity.network.MsftNetIpAddress;
 import io.github.eggy03.cimari.service.compounded.MsftNetAdapterToIpAndDnsAndProfileService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.worker.constant.WMIConstants;
-import io.github.eggy03.nautilus.windows.worker.utilities.WMIBooleanUtility;
-import io.github.eggy03.nautilus.windows.worker.utilities.WMINetworkUtility;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIBooleanResolver;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMINetworkResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -91,12 +91,12 @@ public class WMINetworkPanelWorker extends SwingWorker<Map<Long, MsftNetAdapterT
             networkFields.get(4).setText(String.valueOf(currentAdapter.interfaceType())); //not parsed cause long list
             networkFields.get(5).setText(currentAdapter.linkLayerAddress());
             networkFields.get(6).setText(currentAdapter.linkSpeed());
-            networkFields.get(7).setText(WMIConstants.resolveMsftNetAdapterMediaConnectState(currentAdapter.mediaConnectState()));
+            networkFields.get(7).setText(WMIValueResolver.resolveMsftNetAdapterMediaConnectState(currentAdapter.mediaConnectState()));
             networkFields.get(8).setText(currentAdapter.mediaType());
-            networkFields.get(9).setText(WMINetworkUtility.resolveNetworkSpeedInMbps(currentAdapter.receiveLinkSpeedRaw()));
-            networkFields.get(10).setText(WMINetworkUtility.resolveNetworkSpeedInMbps(currentAdapter.transmitLinkSpeedRaw()));
-            networkFields.get(11).setText(WMIBooleanUtility.resolveBoolean(currentAdapter.fullDuplex()));
-            networkFields.get(12).setText(WMIBooleanUtility.resolveBoolean(currentAdapter.virtual()));
+            networkFields.get(9).setText(WMINetworkResolver.resolveNetworkSpeedInMbps(currentAdapter.receiveLinkSpeedRaw()));
+            networkFields.get(10).setText(WMINetworkResolver.resolveNetworkSpeedInMbps(currentAdapter.transmitLinkSpeedRaw()));
+            networkFields.get(11).setText(WMIBooleanResolver.resolveBoolean(currentAdapter.fullDuplex()));
+            networkFields.get(12).setText(WMIBooleanResolver.resolveBoolean(currentAdapter.virtual()));
             networkFields.get(13).setText(currentAdapter.status());
             networkFields.get(14).setText(currentAdapter.pnpDeviceId());
         }
@@ -117,12 +117,12 @@ public class WMINetworkPanelWorker extends SwingWorker<Map<Long, MsftNetAdapterT
             currentNetIpAddressList.forEach(ip -> stringBuilder
                     .append("<b>IP Interface Index:</b> ").append(ip.interfaceIndex()).append("<br>")
                     .append("<b>IP Interface Alias:</b> ").append(ip.interfaceAlias()).append("<br>")
-                    .append("<b>Address Family:</b> ").append(WMIConstants.resolveMsftIPvAddressFamily(ip.addressFamily())).append("<br>")
+                    .append("<b>Address Family:</b> ").append(WMIValueResolver.resolveMsftIPvAddressFamily(ip.addressFamily())).append("<br>")
                     .append("<b>IPv4 Address:</b> ").append(ip.ipv4Address()).append("<br>")
                     .append("<b>IPv6 Address:</b> ").append(ip.ipv6Address()).append("<br>")
-                    .append("<b>Type:</b> ").append(WMIConstants.resolveMsftNetIpAddressType(ip.type())).append("<br>")
-                    .append("<b>Prefix Origin:</b> ").append(WMIConstants.resolveMsftNetIpAddressPrefixOrigin(ip.prefixOrigin())).append("<br>")
-                    .append("<b>Suffix Origin:</b> ").append(WMIConstants.resolveMsftNetIpAddressSuffixOrigin(ip.suffixOrigin())).append("<br><br>")
+                    .append("<b>Type:</b> ").append(WMIValueResolver.resolveMsftNetIpAddressType(ip.type())).append("<br>")
+                    .append("<b>Prefix Origin:</b> ").append(WMIValueResolver.resolveMsftNetIpAddressPrefixOrigin(ip.prefixOrigin())).append("<br>")
+                    .append("<b>Suffix Origin:</b> ").append(WMIValueResolver.resolveMsftNetIpAddressSuffixOrigin(ip.suffixOrigin())).append("<br><br>")
             );
             stringBuilder.append("</body></html>");
 
@@ -136,7 +136,7 @@ public class WMINetworkPanelWorker extends SwingWorker<Map<Long, MsftNetAdapterT
             currentDnsAddressList.forEach(dns -> stringBuilder
                     .append("<b>DNS Interface Index:</b> ").append(dns.interfaceIndex()).append("<br>")
                     .append("<b>DNS Interface Alias:</b> ").append(dns.interfaceAlias()).append("<br>")
-                    .append("<b>Address Family:</b> ").append(WMIConstants.resolveMsftIPvAddressFamily(dns.addressFamily())).append("<br>")
+                    .append("<b>Address Family:</b> ").append(WMIValueResolver.resolveMsftIPvAddressFamily(dns.addressFamily())).append("<br>")
                     .append("<b>DNS Server Addresses:</b> ").append(dns.dnsServerAddresses()).append("<br><br>")
             );
             stringBuilder.append("</body></html>");
@@ -151,10 +151,10 @@ public class WMINetworkPanelWorker extends SwingWorker<Map<Long, MsftNetAdapterT
             currentConnectionProfileList.forEach(profile -> stringBuilder
                     .append("<b>Profile Interface Index:</b> ").append(profile.interfaceIndex()).append("<br>")
                     .append("<b>Connection Interface Alias:</b> ").append(profile.interfaceAlias()).append("<br>")
-                    .append("<b>Category:</b> ").append(WMIConstants.resolveMsftNetConnectionProfileNetworkCategory(profile.networkCategory())).append("<br>")
-                    .append("<b>Domain Auth Kind:</b> ").append(WMIConstants.resolveMsftNetConnectionProfileDomainAuthenticationKind(profile.domainAuthenticationKind())).append("<br>")
-                    .append("<b>IPv4 Connectivity:</b> ").append(WMIConstants.resolveMsftNetConnectionProfileConnectivity(profile.ipv4Connectivity())).append("<br>")
-                    .append("<b>IPv6 Connectivity:</b> ").append(WMIConstants.resolveMsftNetConnectionProfileConnectivity(profile.ipv6Connectivity())).append("<br><br>")
+                    .append("<b>Category:</b> ").append(WMIValueResolver.resolveMsftNetConnectionProfileNetworkCategory(profile.networkCategory())).append("<br>")
+                    .append("<b>Domain Auth Kind:</b> ").append(WMIValueResolver.resolveMsftNetConnectionProfileDomainAuthenticationKind(profile.domainAuthenticationKind())).append("<br>")
+                    .append("<b>IPv4 Connectivity:</b> ").append(WMIValueResolver.resolveMsftNetConnectionProfileConnectivity(profile.ipv4Connectivity())).append("<br>")
+                    .append("<b>IPv6 Connectivity:</b> ").append(WMIValueResolver.resolveMsftNetConnectionProfileConnectivity(profile.ipv6Connectivity())).append("<br><br>")
             );
             stringBuilder.append("</body></html>");
 

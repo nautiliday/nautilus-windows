@@ -10,9 +10,9 @@ import io.github.eggy03.cimari.entity.storage.Win32DiskPartition;
 import io.github.eggy03.cimari.entity.storage.Win32LogicalDisk;
 import io.github.eggy03.cimari.service.compounded.Win32DiskDriveToPartitionAndLogicalDiskService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.worker.constant.WMIConstants;
-import io.github.eggy03.nautilus.windows.worker.utilities.WMIBooleanUtility;
-import io.github.eggy03.nautilus.windows.worker.utilities.WMISizeUtility;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIBooleanResolver;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMISizeResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -85,7 +85,7 @@ public class WMIStorageWorker extends SwingWorker<Map<String, Win32DiskDriveToPa
             diskFields.get(3).setText(diskDrive.firmwareRevision());
             diskFields.get(4).setText(diskDrive.interfaceType());
             diskFields.get(5).setText(String.valueOf(diskDrive.serialNumber()).trim());
-            diskFields.get(6).setText(WMISizeUtility.parseToGBString(diskDrive.size()));
+            diskFields.get(6).setText(WMISizeResolver.toGBString(diskDrive.size()));
             diskFields.get(7).setText(String.valueOf(diskDrive.partitions()));
             diskFields.get(8).setText(diskDrive.capabilityDescriptions() == null ? "N/A" : diskDrive.capabilityDescriptions().toString());
             diskFields.get(9).setText(diskDrive.status());
@@ -107,12 +107,12 @@ public class WMIStorageWorker extends SwingWorker<Map<String, Win32DiskDriveToPa
                     .append("<b>Description:</b> ").append(partition.description()).append("<br>")
                     .append("<b>Disk Index:</b> ").append(partition.diskIndex()).append("<br>")
                     .append("<b>Type:</b> ").append(partition.type()).append("<br>")
-                    .append("<b>Bootable:</b> ").append(WMIBooleanUtility.resolveBoolean(partition.bootable())).append("<br>")
-                    .append("<b>Primary Partition:</b> ").append(WMIBooleanUtility.resolveBoolean(partition.primaryPartition())).append("<br>")
-                    .append("<b>Boot Partition:</b> ").append(WMIBooleanUtility.resolveBoolean(partition.bootPartition())).append("<br>")
+                    .append("<b>Bootable:</b> ").append(WMIBooleanResolver.resolveBoolean(partition.bootable())).append("<br>")
+                    .append("<b>Primary Partition:</b> ").append(WMIBooleanResolver.resolveBoolean(partition.primaryPartition())).append("<br>")
+                    .append("<b>Boot Partition:</b> ").append(WMIBooleanResolver.resolveBoolean(partition.bootPartition())).append("<br>")
                     .append("<b>Block Size (bytes):</b> ").append(partition.blockSize()).append("<br>")
                     .append("<b>Number of Blocks:</b> ").append(partition.numberOfBlocks()).append("<br>")
-                    .append("<b>Total Size:</b> ").append(WMISizeUtility.parseToGBString(partition.size()))
+                    .append("<b>Total Size:</b> ").append(WMISizeResolver.toGBString(partition.size()))
                     .append("<br><br>")
             );
 
@@ -128,14 +128,14 @@ public class WMIStorageWorker extends SwingWorker<Map<String, Win32DiskDriveToPa
                     .append("<b>Device ID:</b> ").append(logicalDisk.deviceId()).append("<br>")
                     .append("<b>Volume Name:</b> ").append(logicalDisk.volumeName()).append("<br>")
                     .append("<b>Description:</b> ").append(logicalDisk.description()).append("<br>")
-                    .append("<b>Drive Type:</b> ").append(WMIConstants.resolveWMILogicalDiskDriveType(logicalDisk.driveType())).append("<br>")
-                    .append("<b>Media Type:</b> ").append(WMIConstants.resolveWMILogicalDiskMediaType(logicalDisk.mediaType())).append("<br>")
+                    .append("<b>Drive Type:</b> ").append(WMIValueResolver.resolveWMILogicalDiskDriveType(logicalDisk.driveType())).append("<br>")
+                    .append("<b>Media Type:</b> ").append(WMIValueResolver.resolveWMILogicalDiskMediaType(logicalDisk.mediaType())).append("<br>")
                     .append("<b>File System:</b> ").append(logicalDisk.fileSystem()).append("<br>")
-                    .append("<b>Total Size:</b> ").append(WMISizeUtility.parseToGBString(logicalDisk.size())).append("<br>")
-                    .append("<b>Free Space:</b> ").append(WMISizeUtility.parseToGBString(logicalDisk.freeSpace())).append("<br>")
-                    .append("<b>Compressed:</b> ").append(WMIBooleanUtility.resolveBoolean(logicalDisk.compressed())).append("<br>")
-                    .append("<b>Supports File Compression:</b> ").append(WMIBooleanUtility.resolveBoolean(logicalDisk.supportsFileBasedCompression())).append("<br>")
-                    .append("<b>Supports Disk Quotas:</b> ").append(WMIBooleanUtility.resolveBoolean(logicalDisk.supportsDiskQuotas())).append("<br>")
+                    .append("<b>Total Size:</b> ").append(WMISizeResolver.toGBString(logicalDisk.size())).append("<br>")
+                    .append("<b>Free Space:</b> ").append(WMISizeResolver.toGBString(logicalDisk.freeSpace())).append("<br>")
+                    .append("<b>Compressed:</b> ").append(WMIBooleanResolver.resolveBoolean(logicalDisk.compressed())).append("<br>")
+                    .append("<b>Supports File Compression:</b> ").append(WMIBooleanResolver.resolveBoolean(logicalDisk.supportsFileBasedCompression())).append("<br>")
+                    .append("<b>Supports Disk Quotas:</b> ").append(WMIBooleanResolver.resolveBoolean(logicalDisk.supportsDiskQuotas())).append("<br>")
                     .append("<b>Volume Serial Number:</b> ").append(logicalDisk.volumeSerialNumber())
                     .append("<br><br>")
             );

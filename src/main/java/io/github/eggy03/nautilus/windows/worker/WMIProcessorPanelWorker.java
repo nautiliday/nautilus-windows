@@ -9,7 +9,7 @@ import io.github.eggy03.cimari.entity.processor.Win32CacheMemory;
 import io.github.eggy03.cimari.entity.processor.Win32Processor;
 import io.github.eggy03.cimari.service.compounded.Win32ProcessorToCacheMemoryService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.worker.constant.WMIConstants;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
@@ -24,12 +24,12 @@ import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMIAvailability;
-import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMICacheErrorCorrectType;
-import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMICacheMemoryAssociativity;
-import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMICacheMemoryLevel;
-import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMICacheMemoryLocation;
-import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMICacheMemoryType;
+import static io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver.resolveWMIAvailability;
+import static io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver.resolveWMICacheErrorCorrectType;
+import static io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver.resolveWMICacheMemoryAssociativity;
+import static io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver.resolveWMICacheMemoryLevel;
+import static io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver.resolveWMICacheMemoryLocation;
+import static io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver.resolveWMICacheMemoryType;
 
 @RequiredArgsConstructor
 @Slf4j
@@ -98,7 +98,7 @@ public class WMIProcessorPanelWorker extends SwingWorker<Map<String, Win32Proces
             cpuFields.get(9).setText(currentCpu.processorId());
             cpuFields.get(10).setText(String.valueOf(currentCpu.numberOfEnabledCores()));
             cpuFields.get(11).setText(String.valueOf(currentCpu.numberOfLogicalProcessors()));
-            cpuFields.get(12).setText(WMIConstants.processorArchitecture(currentCpu.architecture()));
+            cpuFields.get(12).setText(WMIValueResolver.resolveProcessorArchitecture(currentCpu.architecture()));
             cpuFields.get(13).setText(currentCpu.addressWidth() + " bit");
             cpuFields.get(14).setText(String.valueOf(currentCpu.socketDesignation()));
             cpuFields.get(15).setText(currentCpu.extClock() + " MHz");

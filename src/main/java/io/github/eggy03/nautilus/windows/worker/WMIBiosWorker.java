@@ -7,7 +7,7 @@ package io.github.eggy03.nautilus.windows.worker;
 import io.github.eggy03.cimari.entity.mainboard.Win32Bios;
 import io.github.eggy03.cimari.service.mainboard.Win32BiosService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.worker.utilities.WMIDateUtility;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIDateResolver;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -79,7 +79,7 @@ public class WMIBiosWorker extends SwingWorker<Map<Integer, Win32Bios>, Void> {
         biosFields.get(2).setText(bios.manufacturer());
         biosFields.get(3).setText(bios.name());
 
-        biosFields.get(5).setText(WMIDateUtility.toLocalDateTime(bios.releaseDate()));
+        biosFields.get(5).setText(WMIDateResolver.toLocalDateTime(bios.releaseDate()));
 
         biosFields.get(7).setText(bios.smbiosBiosVersion());
         biosFields.get(8).setText(bios.status());

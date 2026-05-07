@@ -7,8 +7,8 @@ package io.github.eggy03.nautilus.windows.worker;
 import io.github.eggy03.cimari.entity.user.Win32UserAccount;
 import io.github.eggy03.cimari.service.user.Win32UserAccountService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.worker.constant.WMIConstants;
-import io.github.eggy03.nautilus.windows.worker.utilities.WMIBooleanUtility;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIBooleanResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -71,14 +71,14 @@ public class WMIUserAccountWorker extends SwingWorker<Map<String, Win32UserAccou
         userAccountFields.get(1).setText(account.caption());
         userAccountFields.get(2).setText(account.domain());
         userAccountFields.get(3).setText(account.description());
-        userAccountFields.get(4).setText(WMIBooleanUtility.resolveBoolean(account.passwordRequired()));
-        userAccountFields.get(5).setText(WMIBooleanUtility.resolveBoolean(account.passwordChangeable()));
-        userAccountFields.get(6).setText(WMIBooleanUtility.resolveBoolean(account.passwordExpires()));
-        userAccountFields.get(7).setText(WMIBooleanUtility.resolveBoolean(account.localAccount()));
-        userAccountFields.get(8).setText(WMIBooleanUtility.resolveBoolean(account.disabled()));
-        userAccountFields.get(9).setText(WMIBooleanUtility.resolveBoolean(account.lockout()));
-        userAccountFields.get(10).setText(WMIConstants.resolveWMIUserAccountType(account.accountType()));
-        userAccountFields.get(11).setText(WMIConstants.resolveWMIUserAccountSidType(account.sidType()));
+        userAccountFields.get(4).setText(WMIBooleanResolver.resolveBoolean(account.passwordRequired()));
+        userAccountFields.get(5).setText(WMIBooleanResolver.resolveBoolean(account.passwordChangeable()));
+        userAccountFields.get(6).setText(WMIBooleanResolver.resolveBoolean(account.passwordExpires()));
+        userAccountFields.get(7).setText(WMIBooleanResolver.resolveBoolean(account.localAccount()));
+        userAccountFields.get(8).setText(WMIBooleanResolver.resolveBoolean(account.disabled()));
+        userAccountFields.get(9).setText(WMIBooleanResolver.resolveBoolean(account.lockout()));
+        userAccountFields.get(10).setText(WMIValueResolver.resolveWMIUserAccountType(account.accountType()));
+        userAccountFields.get(11).setText(WMIValueResolver.resolveWMIUserAccountSidType(account.sidType()));
         userAccountFields.get(12).setText(account.status());
     }
 }

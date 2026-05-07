@@ -7,8 +7,8 @@ package io.github.eggy03.nautilus.windows.worker;
 import io.github.eggy03.cimari.entity.display.Win32VideoController;
 import io.github.eggy03.cimari.service.display.Win32VideoControllerService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.worker.utilities.WMIDateUtility;
-import io.github.eggy03.nautilus.windows.worker.utilities.WMISizeUtility;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIDateResolver;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMISizeResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -78,9 +78,9 @@ public class WMIVideoControllerPanelWorker extends SwingWorker<Map<String, Win32
         gpuFields.get(6).setText(gpu.maxRefreshRate() + " Hz");
         gpuFields.get(7).setText(gpu.currentRefreshRate() + " Hz");
         gpuFields.get(8).setText(gpu.adapterDacType());
-        gpuFields.get(9).setText(WMISizeUtility.parseToGBString(gpu.adapterRam()));
+        gpuFields.get(9).setText(WMISizeResolver.toGBString(gpu.adapterRam()));
         gpuFields.get(10).setText(gpu.driverVersion());
-        gpuFields.get(11).setText(WMIDateUtility.toLocalDateTime(gpu.driverDate()));
+        gpuFields.get(11).setText(WMIDateResolver.toLocalDateTime(gpu.driverDate()));
         gpuFields.get(12).setText(gpu.videoProcessor());
     }
 }

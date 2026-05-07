@@ -19,7 +19,7 @@ import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMIPortType;
+import static io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver.resolveWMIPortType;
 
 @Slf4j
 @RequiredArgsConstructor

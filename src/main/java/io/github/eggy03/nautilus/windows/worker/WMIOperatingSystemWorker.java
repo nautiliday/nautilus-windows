@@ -7,8 +7,8 @@ package io.github.eggy03.nautilus.windows.worker;
 import io.github.eggy03.cimari.entity.system.Win32OperatingSystem;
 import io.github.eggy03.cimari.service.system.Win32OperatingSystemService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.worker.utilities.WMIBooleanUtility;
-import io.github.eggy03.nautilus.windows.worker.utilities.WMIDateUtility;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIBooleanResolver;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIDateResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -76,13 +76,13 @@ public class WMIOperatingSystemWorker extends SwingWorker<Map<String, Win32Opera
         osFields.get(2).setText(os.buildNumber());
         osFields.get(3).setText(os.manufacturer());
         osFields.get(4).setText(os.osArchitecture());
-        osFields.get(5).setText(WMIDateUtility.toLocalDateTime(os.installDate()));
-        osFields.get(6).setText(WMIDateUtility.toLocalDateTime(os.lastBootUpTime()));
+        osFields.get(5).setText(WMIDateResolver.toLocalDateTime(os.installDate()));
+        osFields.get(6).setText(WMIDateResolver.toLocalDateTime(os.lastBootUpTime()));
         osFields.get(7).setText(os.serialNumber());
         osFields.get(8).setText(os.muiLanguages() == null ? "N/A" : os.muiLanguages().toString());
-        osFields.get(9).setText(WMIBooleanUtility.resolveBoolean(os.primary()));
-        osFields.get(10).setText(WMIBooleanUtility.resolveBoolean(os.distributed()));
-        osFields.get(11).setText(WMIBooleanUtility.resolveBoolean(os.portableOperatingSystem()));
+        osFields.get(9).setText(WMIBooleanResolver.resolveBoolean(os.primary()));
+        osFields.get(10).setText(WMIBooleanResolver.resolveBoolean(os.distributed()));
+        osFields.get(11).setText(WMIBooleanResolver.resolveBoolean(os.portableOperatingSystem()));
         osFields.get(12).setText(os.csName());
         osFields.get(13).setText(String.valueOf(os.numberOfUsers()));
         osFields.get(14).setText(os.registeredUser());
@@ -94,9 +94,9 @@ public class WMIOperatingSystemWorker extends SwingWorker<Map<String, Win32Opera
                 System.lineSeparator() +
                 "Version: " + os.version() +
                 System.lineSeparator() +
-                "Installed on: " + WMIDateUtility.toLocalDateTime(os.installDate()) +
+                "Installed on: " + WMIDateResolver.toLocalDateTime(os.installDate()) +
                 System.lineSeparator() +
-                "Last started on: " + WMIDateUtility.toLocalDateTime(os.lastBootUpTime()) +
+                "Last started on: " + WMIDateResolver.toLocalDateTime(os.lastBootUpTime()) +
                 System.lineSeparator() +
                 "Registered to: " + os.registeredUser();
 

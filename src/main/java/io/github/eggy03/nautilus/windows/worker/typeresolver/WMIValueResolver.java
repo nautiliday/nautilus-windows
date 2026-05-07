@@ -2,21 +2,57 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright (C) 2026 Egg-03
  */
-package io.github.eggy03.nautilus.windows.worker.constant;
+package io.github.eggy03.nautilus.windows.worker.typeresolver;
 
 import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * Utility class responsible for resolving numeric Windows Management
+ * Instrumentation (WMI) property values into human-readable strings.
+ *
+ * <p>
+ * Many WMI classes expose enumerated values as integers or longs.
+ * This resolver translates those raw values into descriptive labels
+ * based on Microsoft WMI documentation.
+ * </p>
+ *
+ * <p>
+ * Supported namespaces and classes include:
+ * </p>
+ *
+ * <ul>
+ *     <li>Win32_Processor</li>
+ *     <li>Win32_CacheMemory</li>
+ *     <li>Win32_PhysicalMemory</li>
+ *     <li>Win32_PortConnector</li>
+ *     <li>Win32_LogicalDisk</li>
+ *     <li>Win32_UserAccount</li>
+ *     <li>MSFT_NetAdapter</li>
+ *     <li>MSFT_NetIPAddress</li>
+ *     <li>MSFT_NetConnectionProfile</li>
+ * </ul>
+ *
+ * <p>
+ * If a value cannot be resolved, a descriptive fallback message is returned.
+ * Null values are represented as {@code N/A}.
+ * </p>
+ *
+ * <p>
+ * This class is not intended to be instantiated.
+ * </p>
+ */
+@SuppressWarnings("java:S1192")
 @UtilityClass
-public class WMIConstants {
+public class WMIValueResolver {
 
     private static final String NOT_AVAILABLE = "N/A";
     private static final String NOT_RESOLVED = "Value Not Resolved For: ";
 
-    //Win32Processor
+    //Win32_Processor
     @NotNull
-    public static String processorArchitecture(@Nullable Integer architecture) {
+    public static String resolveProcessorArchitecture(@Nullable Integer architecture) {
         return switch (architecture){
             case 0 -> "x86";
             case 1 -> "MIPS";
@@ -31,7 +67,7 @@ public class WMIConstants {
         };
     }
 
-    // Win32CacheMemory
+    // Win32_CacheMemory
     @NotNull
     public static String resolveWMICacheMemoryType(@Nullable Integer cacheType) {
 
@@ -107,7 +143,7 @@ public class WMIConstants {
         };
     }
 
-    // Win32PhysicalMemory
+    // Win32_PhysicalMemory
     @NotNull
     public static String resolveWMIPhysicalMemoryFormFactor(@Nullable Integer formFactor) {
 
@@ -141,7 +177,7 @@ public class WMIConstants {
         };
     }
 
-    // Win32PortConnector
+    // Win32_PortConnector
     @NotNull
     public static String resolveWMIPortType(@Nullable Integer portType) {
 
@@ -187,21 +223,16 @@ public class WMIConstants {
 
     // MSFT_NetCommon
     @NotNull
-    public static String resolveMsftIPvAddressFamily(@Nullable Object addressFamily) {
+    public static String resolveMsftIPvAddressFamily(@Nullable Number addressFamily) {
 
-        return switch (addressFamily) {
-            case null -> NOT_AVAILABLE;
-            case Long addressFamilyLong -> switch (addressFamilyLong.intValue()) {
-                case 2 -> "IPv4";
-                case 23 -> "IPv6";
-                default -> "Unknown";
-            };
-            case Integer addressFamilyInt -> switch (addressFamilyInt) {
-                case 2 -> "IPv4";
-                case 23 -> "IPv6";
-                default -> "Unknown";
-            };
-            default -> NOT_RESOLVED +addressFamily;
+        if (addressFamily == null) {
+            return NOT_AVAILABLE;
+        }
+
+        return switch (addressFamily.intValue()) {
+            case 2 -> "IPv4";
+            case 23 -> "IPv6";
+            default -> "Unknown";
         };
 
     }
@@ -214,7 +245,7 @@ public class WMIConstants {
             return NOT_AVAILABLE;
         }
 
-        return switch (mediaConnectState.intValue()) {
+        return switch (Math.toIntExact(mediaConnectState)) {
             case 0 -> "Unknown";
             case 1 -> "Connected";
             case 2 -> "Disconnected";
@@ -373,7 +404,7 @@ public class WMIConstants {
         };
     }
 
-    // Win32UserAccount
+    // Win32_UserAccount
     @NotNull
     public static String resolveWMIUserAccountSidType(@Nullable Integer sidType) {
 
@@ -392,7 +423,6 @@ public class WMIConstants {
         };
     }
 
-    // Win32_UserAccount
     @NotNull
     public static String resolveWMIUserAccountType(@Nullable Long accountType) {
 

@@ -7,7 +7,7 @@ package io.github.eggy03.nautilus.windows.worker;
 import io.github.eggy03.cimari.entity.memory.Win32PhysicalMemory;
 import io.github.eggy03.cimari.service.memory.Win32PhysicalMemoryService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import io.github.eggy03.nautilus.windows.worker.utilities.WMISizeUtility;
+import io.github.eggy03.nautilus.windows.worker.typeresolver.WMISizeResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,7 +20,7 @@ import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-import static io.github.eggy03.nautilus.windows.worker.constant.WMIConstants.resolveWMIPhysicalMemoryFormFactor;
+import static io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver.resolveWMIPhysicalMemoryFormFactor;
 
 @RequiredArgsConstructor
 @Slf4j
@@ -81,7 +81,7 @@ public class WMIPhysicalMemoryPanelWorker extends SwingWorker<Map<String, Win32P
         memoryFields.get(5).setText(memory.serialNumber());
         memoryFields.get(6).setText(resolveWMIPhysicalMemoryFormFactor(memory.formFactor()));
         memoryFields.get(7).setText(memory.bankLabel());
-        memoryFields.get(8).setText(WMISizeUtility.parseToGBString(memory.capacity()));
+        memoryFields.get(8).setText(WMISizeResolver.toGBString(memory.capacity()));
         memoryFields.get(9).setText(memory.dataWidth() + " Bits");
         memoryFields.get(10).setText(memory.speed() + " MHz");
         memoryFields.get(11).setText(memory.configuredClockSpeed() + " MHz");
