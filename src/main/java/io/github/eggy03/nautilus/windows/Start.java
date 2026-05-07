@@ -5,14 +5,13 @@
 package io.github.eggy03.nautilus.windows;
 
 import com.formdev.flatlaf.FlatLaf;
-import io.github.eggy03.nautilus.windows.constant.OSConstants;
 import io.github.eggy03.nautilus.windows.ui.primary.MainUI;
 import io.github.eggy03.nautilus.windows.ui.secondary.ExceptionUI;
+import io.github.eggy03.nautilus.windows.utility.OSDetection;
 import io.github.eggy03.nautilus.windows.utility.UIManagerConfigurations;
 import lombok.extern.slf4j.Slf4j;
 
 import java.awt.EventQueue;
-import java.util.Objects;
 
 @Slf4j
 public class Start {
@@ -35,7 +34,7 @@ public class Start {
         log.info("java.home found at: {}", System.getProperty("java.home"));
 
 
-        log.info("Detected OS: {}", OSConstants.getCurrentOS());
+        log.info("Detected OS: {}", OSDetection.getCurrentOS());
         FlatLaf.registerCustomDefaultsSource("themes"); // for maven build, this points towards src/main/resources/themes
 
         EventQueue.invokeLater(() -> {
@@ -47,10 +46,10 @@ public class Start {
     }
 
     private static void launchUIBasedOnOS() {
-        if (Objects.requireNonNull(OSConstants.detectOs()) == OSConstants.WINDOWS) {
+        if (OSDetection.isWindows()) {
             new MainUI().setVisible(true);
         } else {
-            new ExceptionUI("Unsupported OS", OSConstants.getCurrentOS() + " is not supported");
+            new ExceptionUI("Unsupported OS", OSDetection.getCurrentOS() + " is not supported");
         }
     }
 }
