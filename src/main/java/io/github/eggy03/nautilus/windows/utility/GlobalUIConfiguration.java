@@ -63,7 +63,8 @@ public class GlobalUIConfiguration {
     public GlobalUIConfiguration applySystemLookAndFeel() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 UnsupportedLookAndFeelException e) {
             log.error("Could not set system LAF: {}", UIManager.getSystemLookAndFeelClassName(), e);
         }
 
@@ -93,7 +94,8 @@ public class GlobalUIConfiguration {
     public GlobalUIConfiguration applyCustomLookAndFeel(@NonNull String themeClassName) {
         try {
             UIManager.setLookAndFeel(themeClassName);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 UnsupportedLookAndFeelException e) {
             log.error("Could not set custom LAF: {}", themeClassName, e);
         }
 
@@ -121,8 +123,8 @@ public class GlobalUIConfiguration {
      * the failure is logged.
      * </p>
      *
-     * @param themeClassName the fully-qualified FlatLaf
-     *                                  theme class name
+     * @param themeClassName        the fully-qualified FlatLaf
+     *                              theme class name
      * @param themePropertyLocation the location of the theme properties
      *                              resource directory
      */
@@ -131,7 +133,8 @@ public class GlobalUIConfiguration {
 
         try {
             UIManager.setLookAndFeel(themeClassName);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 UnsupportedLookAndFeelException e) {
             log.error("Could not set FlatLaf LAF: {}", themeClassName, e);
         }
 
