@@ -15,6 +15,7 @@ import io.github.eggy03.nautilus.windows.worker.typeresolver.WMISizeResolver;
 import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
@@ -30,12 +31,12 @@ import java.util.stream.Collectors;
 @Slf4j
 public class WMIStorageWorker extends SwingWorker<Map<String, Win32DiskDriveToPartitionAndLogicalDisk>, Void> {
 
-    private final JComboBox<String> diskIdComboBox;
-    private final List<JTextField> diskFields;
-    private final List<JEditorPane> diskEditorPanes;
+    private final @NonNull JComboBox<String> diskIdComboBox;
+    private final @NonNull List<JTextField> diskFields;
+    private final @NonNull List<JEditorPane> diskEditorPanes;
 
     @Override
-    protected Map<String, Win32DiskDriveToPartitionAndLogicalDisk> doInBackground() {
+    protected @NonNull Map<String, Win32DiskDriveToPartitionAndLogicalDisk> doInBackground() {
         List<Win32DiskDriveToPartitionAndLogicalDisk> diskList = new Win32DiskDriveToPartitionAndLogicalDiskService().get(TerminalConstant.TIMEOUT_SIXTY_SECONDS);
         log.info("Found {} Win32DiskDrive entry/entries", diskList.size());
 
@@ -67,7 +68,7 @@ public class WMIStorageWorker extends SwingWorker<Map<String, Win32DiskDriveToPa
         }
     }
 
-    private void populate(Map<String, Win32DiskDriveToPartitionAndLogicalDisk> diskMap) {
+    private void populate(@NonNull Map<String, Win32DiskDriveToPartitionAndLogicalDisk> diskMap) {
 
         String selectedDiskId = String.valueOf(diskIdComboBox.getSelectedItem());
 

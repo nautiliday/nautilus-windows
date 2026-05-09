@@ -9,6 +9,7 @@ import io.github.eggy03.cimari.service.mainboard.Win32PortConnectorService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -25,11 +26,11 @@ import static io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueReso
 @RequiredArgsConstructor
 public class WMIPortConnectorWorker extends SwingWorker<Map<String, Win32PortConnector>, Void> {
 
-    private final JComboBox<String> tagComboBox;
-    private final List<JTextField> portFields;
+    private final @NonNull JComboBox<String> tagComboBox;
+    private final @NonNull List<JTextField> portFields;
 
     @Override
-    protected Map<String, Win32PortConnector> doInBackground() {
+    protected @NonNull Map<String, Win32PortConnector> doInBackground() {
         List<Win32PortConnector> portList = new Win32PortConnectorService().get(TerminalConstant.TIMEOUT_SIXTY_SECONDS);
         log.info("Found {} Win32_PortConnector entry(s)", portList.size());
 
@@ -63,7 +64,7 @@ public class WMIPortConnectorWorker extends SwingWorker<Map<String, Win32PortCon
 
     }
 
-    private void populatePortConnectorFields(Map<String, Win32PortConnector> portMap) {
+    private void populatePortConnectorFields(@NonNull Map<String, Win32PortConnector> portMap) {
 
         String selectedTag = String.valueOf(tagComboBox.getSelectedItem());
 

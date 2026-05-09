@@ -11,6 +11,7 @@ import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIBooleanResolver;
 import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIDateResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
@@ -26,12 +27,12 @@ import java.util.stream.Collectors;
 @Slf4j
 public class WMIOperatingSystemWorker extends SwingWorker<Map<String, Win32OperatingSystem>, Void> {
 
-    private final JComboBox<String> osNameComboBox;
-    private final List<JTextField> osFields;
-    private final JTextArea osConciseInfoArea;
+    private final @NonNull JComboBox<String> osNameComboBox;
+    private final @NonNull List<JTextField> osFields;
+    private final @NonNull JTextArea osConciseInfoArea;
 
     @Override
-    protected Map<String, Win32OperatingSystem> doInBackground() {
+    protected @NonNull Map<String, Win32OperatingSystem> doInBackground() {
 
         List<Win32OperatingSystem> osList = new Win32OperatingSystemService().get(TerminalConstant.TIMEOUT_SIXTY_SECONDS);
         log.info("Found {} Win32_OperatingSystem entry(s)", osList.size());
@@ -64,7 +65,7 @@ public class WMIOperatingSystemWorker extends SwingWorker<Map<String, Win32Opera
         }
     }
 
-    private void populateFields(Map<String, Win32OperatingSystem> osMap) {
+    private void populateFields(@NonNull Map<String, Win32OperatingSystem> osMap) {
 
         String osName = String.valueOf(osNameComboBox.getSelectedItem());
 

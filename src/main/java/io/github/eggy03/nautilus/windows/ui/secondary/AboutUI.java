@@ -7,6 +7,7 @@ package io.github.eggy03.nautilus.windows.ui.secondary;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import io.github.eggy03.nautilus.windows.constant.Version;
 import net.miginfocom.swing.MigLayout;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
@@ -30,14 +31,14 @@ import java.util.Objects;
 
 public class AboutUI extends JFrame {
 
-    private static final String VERSION_AND_AUTHOR =
+    private static final @NonNull String VERSION_AND_AUTHOR =
             "Version: " + Version.SEMVER + Version.SUFFIX
                     + System.lineSeparator()
                     + "Developer: " + Version.DEVELOPER
                     + System.lineSeparator()
                     + "License: " + Version.LICENSE;
 
-    private static final String ATTRIBUTION = """	
+    private static final @NonNull String ATTRIBUTION = """	
             <b>Open-Source Licenses</b><br>
             This application includes the following third-party open-source libraries and frameworks:
             <ul>
@@ -85,7 +86,7 @@ public class AboutUI extends JFrame {
         setContentPane(contentPane);
     }
 
-    private JPanel createVersionPanel() {
+    private @NonNull JPanel createVersionPanel() {
 
         JPanel versionPanel = new JPanel();
         versionPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Version Info", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -103,7 +104,7 @@ public class AboutUI extends JFrame {
         return versionPanel;
     }
 
-    private JPanel createAttributionPanel() {
+    private @NonNull JPanel createAttributionPanel() {
 
         JPanel attributionPanel = new JPanel();
         attributionPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Attribution", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -119,7 +120,7 @@ public class AboutUI extends JFrame {
         return attributionPanel;
     }
 
-    private JMenuBar createMenu() {
+    private @NonNull JMenuBar createMenu() {
 
         JMenuBar menuBar = new JMenuBar();
 

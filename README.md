@@ -6,9 +6,10 @@ Windows build of Nautilus
 
 ## Pre-Built Binaries
 
-Pre-built binaries are not signed, which means your antivirus or smart-screen software may flag it as an
-unwanted program. If there is a demand for it, I may start releasing them, but for now, building from source
-is a viable option since your AV or Smart Screen filter wouldn't flag it.
+Pre-built binaries are not signed, which means your antivirus or smart-screen may flag it. Make sure you download
+it from trusted sources only.
+
+Binaries can be found in [Releases](https://github.com/nautiliday/nautilus-windows/releases) page.
 
 ## Building from source
 
@@ -31,7 +32,9 @@ cd Nautilus
 
 The generated binaries will be available in `../Nautilus/target/output`
 
-Note that each subsequent build requires manually clearing out the target folder or else the build will fail
+> [!IMPORTANT]
+> Note that each subsequent build requires manually clearing out the target folder because for some reason,
+> generated binary stays in read-only mode and maven fails to replace or remove the read-only binary.
 
 - The build uses `jpackage` to generate native app images
 - Output format depends on the target OS

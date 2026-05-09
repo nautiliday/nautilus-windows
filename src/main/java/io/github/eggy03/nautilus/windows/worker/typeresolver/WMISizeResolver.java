@@ -5,7 +5,8 @@
 package io.github.eggy03.nautilus.windows.worker.typeresolver;
 
 import lombok.experimental.UtilityClass;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -21,17 +22,17 @@ public class WMISizeResolver {
     /**
      * Number of bytes in one megabyte using binary conversion.
      */
-    private static final BigDecimal BYTES_PER_MB = BigDecimal.valueOf(1024L * 1024L);
+    private static final @NonNull BigDecimal BYTES_PER_MB = BigDecimal.valueOf(1024L * 1024L);
 
     /**
      * Number of bytes in one gigabyte using binary conversion.
      */
-    private static final BigDecimal BYTES_PER_GB = BigDecimal.valueOf(1024L * 1024L * 1024L);
+    private static final @NonNull BigDecimal BYTES_PER_GB = BigDecimal.valueOf(1024L * 1024L * 1024L);
 
     /**
      * Rounding mode used for decimal conversions.
      */
-    private static final RoundingMode ROUNDING_MODE = RoundingMode.HALF_UP;
+    private static final @NonNull RoundingMode ROUNDING_MODE = RoundingMode.HALF_UP;
 
     /**
      * Number of decimal places used in formatted output.
@@ -53,8 +54,8 @@ public class WMISizeResolver {
      * @return the formatted size in MB,
      * or {@code "N/A"} if the value is null
      */
-    @NotNull
-    public static String toMBString(Long bytes) {
+    @NonNull
+    public static String toMBString(@Nullable Long bytes) {
         if (bytes == null)
             return "N/A";
 
@@ -73,8 +74,8 @@ public class WMISizeResolver {
      * @return the formatted size in MB,
      * or {@code "N/A"} if the value is null
      */
-    @NotNull
-    public static String toMBString(BigInteger bytes) {
+    @NonNull
+    public static String toMBString(@Nullable BigInteger bytes) {
         if (bytes == null)
             return "N/A";
 
@@ -97,8 +98,8 @@ public class WMISizeResolver {
      * @return the formatted size in GB,
      * or {@code "N/A"} if the value is null
      */
-    @NotNull
-    public static String toGBString(Long bytes) {
+    @NonNull
+    public static String toGBString(@Nullable Long bytes) {
         if (bytes == null)
             return "N/A";
 
@@ -117,8 +118,8 @@ public class WMISizeResolver {
      * @return the formatted size in GB,
      * or {@code "N/A"} if the value is null
      */
-    @NotNull
-    public static String toGBString(BigInteger bytes) {
+    @NonNull
+    public static String toGBString(@Nullable BigInteger bytes) {
         if (bytes == null)
             return "N/A";
 

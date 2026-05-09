@@ -5,8 +5,8 @@
 package io.github.eggy03.nautilus.windows.worker.typeresolver;
 
 import lombok.experimental.UtilityClass;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Utility class for resolving nullable boolean WMI values into
@@ -32,7 +32,7 @@ public class WMIBooleanResolver {
      * @param value the boolean value to resolve
      * @return the resolved string representation of the boolean value
      */
-    @NotNull
+    @NonNull
     public static String resolveBoolean(@Nullable Boolean value) {
         if (value == null)
             return "N/A";

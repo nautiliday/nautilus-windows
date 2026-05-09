@@ -5,9 +5,8 @@
 package io.github.eggy03.nautilus.windows.utility;
 
 import com.formdev.flatlaf.FlatLaf;
-import lombok.NonNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -39,9 +38,8 @@ import java.awt.Insets;
  * </p>
  *
  */
+@Slf4j
 public class GlobalUIConfiguration {
-
-    private static final Logger log = LoggerFactory.getLogger(GlobalUIConfiguration.class);
 
     /**
      * Creates a new UI configuration using the host operating system's
@@ -60,10 +58,11 @@ public class GlobalUIConfiguration {
      * the failure is logged.
      * </p>
      */
-    public GlobalUIConfiguration applySystemLookAndFeel() {
+    public @NonNull GlobalUIConfiguration applySystemLookAndFeel() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 UnsupportedLookAndFeelException e) {
             log.error("Could not set system LAF: {}", UIManager.getSystemLookAndFeelClassName(), e);
         }
 
@@ -90,10 +89,11 @@ public class GlobalUIConfiguration {
      *                       Swing Look-and-Feel implementation
      * @return the current instance for chaining
      */
-    public GlobalUIConfiguration applyCustomLookAndFeel(@NonNull String themeClassName) {
+    public @NonNull GlobalUIConfiguration applyCustomLookAndFeel(@NonNull String themeClassName) {
         try {
             UIManager.setLookAndFeel(themeClassName);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 UnsupportedLookAndFeelException e) {
             log.error("Could not set custom LAF: {}", themeClassName, e);
         }
 
@@ -121,17 +121,18 @@ public class GlobalUIConfiguration {
      * the failure is logged.
      * </p>
      *
-     * @param themeClassName the fully-qualified FlatLaf
-     *                                  theme class name
+     * @param themeClassName        the fully-qualified FlatLaf
+     *                              theme class name
      * @param themePropertyLocation the location of the theme properties
      *                              resource directory
      */
-    public GlobalUIConfiguration applyFlatLafLookAndFeel(@NonNull String themeClassName, @NonNull String themePropertyLocation) {
+    public @NonNull GlobalUIConfiguration applyFlatLafLookAndFeel(@NonNull String themeClassName, @NonNull String themePropertyLocation) {
         FlatLaf.registerCustomDefaultsSource(themePropertyLocation); // for maven build, this points towards src/main/resources/themes
 
         try {
             UIManager.setLookAndFeel(themeClassName);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 UnsupportedLookAndFeelException e) {
             log.error("Could not set FlatLaf LAF: {}", themeClassName, e);
         }
 
@@ -159,7 +160,7 @@ public class GlobalUIConfiguration {
      *
      * @return the current instance for chaining
      */
-    public GlobalUIConfiguration enableRoundComponents() {
+    public @NonNull GlobalUIConfiguration enableRoundComponents() {
         UIManager.put("Button.arc", 999);
         UIManager.put("Component.arc", 999);
         UIManager.put("ProgressBar.arc", 999);
@@ -190,7 +191,7 @@ public class GlobalUIConfiguration {
      * @param value {@code true} to enable separators,
      *              {@code false} to disable them
      */
-    public GlobalUIConfiguration enableTabSeparators(boolean value) {
+    public @NonNull GlobalUIConfiguration enableTabSeparators(boolean value) {
         UIManager.put("TabbedPane.showTabSeparators", value);
         UIManager.put("TabbedPane.tabSeparatorsFullHeight", value);
 
