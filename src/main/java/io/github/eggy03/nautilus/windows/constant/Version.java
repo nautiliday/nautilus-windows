@@ -11,7 +11,7 @@ import org.jspecify.annotations.NonNull;
 public class Version {
 
     public static final @NonNull String SEMVER = "1.0.0";
-    public static final @NonNull String SUFFIX = "-RELEASE";
+    public static final @NonNull String SUFFIX = "";
     public static final @NonNull String DEVELOPER = "Egg-03";
     public static final @NonNull String LICENSE = "GNU General Public License v3.0";
     public static final @NonNull String GITHUB_PAGE = "https://github.com/nautiliday/nautilus-windows";
