@@ -16,6 +16,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 import java.util.List;
 
+@SuppressWarnings("java:S1192")
 public class WMIPhysicalMemoryPanel extends JPanel {
 
     private final @NonNull JLabel slotLabel = new JLabel("Slot#");

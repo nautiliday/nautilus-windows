@@ -20,6 +20,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.GridLayout;
 import java.util.List;
 
+@SuppressWarnings("java:S1192")
 public class WMIOperatingSystemPanel extends JPanel {
 
     // Init Components in the main panel

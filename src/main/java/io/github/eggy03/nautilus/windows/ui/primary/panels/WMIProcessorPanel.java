@@ -24,6 +24,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.util.List;
 
+@SuppressWarnings("java:S1192")
 public class WMIProcessorPanel extends JPanel {
 
     // the main panel has five sub panels

@@ -22,6 +22,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.GridLayout;
 import java.util.List;
 
+@SuppressWarnings("java:S1192")
 public class WMINetworkPanel extends JPanel {
 
     // Init Components in the main panel

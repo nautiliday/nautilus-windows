@@ -23,6 +23,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.GridLayout;
 import java.util.List;
 
+@SuppressWarnings("java:S1192")
 public class WMIStoragePanel extends JPanel {
 
     private final @NonNull JLabel diskDeviceIdLabel = new JLabel("Disk#");

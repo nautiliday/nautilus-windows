@@ -14,7 +14,6 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
-import java.awt.Font;
 import java.awt.Toolkit;
 
 @Getter
@@ -45,18 +44,15 @@ public class ConfirmationUI extends JFrame {
         panel.setLayout(null);
 
         btnYes = new JButton("Yes");
-        btnYes.setFont(new Font("Segoe UI", Font.PLAIN, 10));
         btnYes.setBounds(68, 51, 54, 17);
         panel.add(btnYes);
 
         btnNo = new JButton("No");
-        btnNo.setFont(new Font("Segoe UI", Font.PLAIN, 10));
         btnNo.setBounds(152, 51, 54, 17);
         panel.add(btnNo);
 
         JLabel questionLabel = new JLabel(question);
         questionLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        questionLabel.setFont(new Font("Segoe UI", Font.ITALIC, 11));
         questionLabel.setBounds(10, 18, 244, 24);
         panel.add(questionLabel);
     }

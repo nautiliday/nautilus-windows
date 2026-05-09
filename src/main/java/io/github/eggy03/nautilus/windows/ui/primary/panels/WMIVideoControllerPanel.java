@@ -17,6 +17,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 import java.util.List;
 
+@SuppressWarnings("java:S1192")
 public class WMIVideoControllerPanel extends JPanel {
 
     // identifier panel
