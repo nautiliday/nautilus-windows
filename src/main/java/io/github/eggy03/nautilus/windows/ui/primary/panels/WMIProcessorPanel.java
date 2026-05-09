@@ -222,7 +222,7 @@ public class WMIProcessorPanel extends JPanel {
         cpuConciseInfoPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Concise CPU Information", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 
         cpuConciseInfoTextArea.setEditable(false);
-        cpuConciseInfoTextArea.setRows(7);
+        cpuConciseInfoTextArea.setRows(5);
         cpuConciseInfoTextArea.setColumns(10);
         cpuConciseInfoPanel.add(new JScrollPane(cpuConciseInfoTextArea));
 
@@ -236,7 +236,7 @@ public class WMIProcessorPanel extends JPanel {
         cacheInfoPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "CPU Cache Info", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 
         cacheTextArea.setEditable(false);
-        cacheTextArea.setRows(7);
+        cacheTextArea.setRows(5);
         cacheTextArea.setColumns(10);
         cacheInfoPanel.add(new JScrollPane(cacheTextArea));
 
