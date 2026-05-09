@@ -11,6 +11,7 @@ import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIBooleanResolver;
 import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -25,11 +26,11 @@ import java.util.stream.Collectors;
 @Slf4j
 public class WMIUserAccountWorker extends SwingWorker<Map<String, Win32UserAccount>, Void> {
 
-    private final JComboBox<String> userAccountSIDComboBox;
-    private final List<JTextField> userAccountFields;
+    private final @NonNull JComboBox<String> userAccountSIDComboBox;
+    private final @NonNull List<JTextField> userAccountFields;
 
     @Override
-    protected Map<String, Win32UserAccount> doInBackground() {
+    protected @NonNull Map<String, Win32UserAccount> doInBackground() {
         List<Win32UserAccount> accountList = new Win32UserAccountService().get(TerminalConstant.TIMEOUT_SIXTY_SECONDS);
         log.info("Found {} Win32_UserAccount entry(s)", accountList.size());
 
@@ -61,7 +62,7 @@ public class WMIUserAccountWorker extends SwingWorker<Map<String, Win32UserAccou
         }
     }
 
-    private void populateFields(Map<String, Win32UserAccount> accountMap) {
+    private void populateFields(@NonNull Map<String, Win32UserAccount> accountMap) {
         String userAccountSid = String.valueOf(userAccountSIDComboBox.getSelectedItem());
 
         Win32UserAccount account = accountMap.get(userAccountSid);

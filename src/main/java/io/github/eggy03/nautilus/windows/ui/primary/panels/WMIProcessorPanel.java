@@ -8,6 +8,7 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import io.github.eggy03.nautilus.windows.worker.WMIHardwareIdWorker;
 import io.github.eggy03.nautilus.windows.worker.WMIProcessorPanelWorker;
 import net.miginfocom.swing.MigLayout;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -28,75 +29,75 @@ public class WMIProcessorPanel extends JPanel {
     // the main panel has five sub panels
 
     // hardware ID panel components
-    private final JTextField hardwareIdTextField = new JTextField();
-    private final JButton copyHid = new JButton();
+    private final @NonNull JTextField hardwareIdTextField = new JTextField();
+    private final @NonNull JButton copyHid = new JButton();
 
     // primary info panel components
-    private final JLabel cpuIdLabel = new JLabel("CPU#");
-    private final JComboBox<String> cpuIdComboBox = new JComboBox<>();
+    private final @NonNull JLabel cpuIdLabel = new JLabel("CPU#");
+    private final @NonNull JComboBox<String> cpuIdComboBox = new JComboBox<>();
 
-    private final JLabel cpuNameLabel = new JLabel("Name");
-    private final JTextField cpuNameTextField = new JTextField();
+    private final @NonNull JLabel cpuNameLabel = new JLabel("Name");
+    private final @NonNull JTextField cpuNameTextField = new JTextField();
 
-    private final JLabel coreLabel = new JLabel("Cores");
-    private final JTextField coreTextField = new JTextField();
+    private final @NonNull JLabel coreLabel = new JLabel("Cores");
+    private final @NonNull JTextField coreTextField = new JTextField();
 
-    private final JLabel threadLabel = new JLabel("Threads");
-    private final JTextField threadTextField = new JTextField();
+    private final @NonNull JLabel threadLabel = new JLabel("Threads");
+    private final @NonNull JTextField threadTextField = new JTextField();
 
-    private final JLabel effectiveClockLabel = new JLabel("Effective Clock");
-    private final JTextField effectiveClockTextField = new JTextField();
+    private final @NonNull JLabel effectiveClockLabel = new JLabel("Effective Clock");
+    private final @NonNull JTextField effectiveClockTextField = new JTextField();
 
-    private final JLabel addressWidthLabel = new JLabel("Address Width");
-    private final JTextField addressWidthTextField = new JTextField();
+    private final @NonNull JLabel addressWidthLabel = new JLabel("Address Width");
+    private final @NonNull JTextField addressWidthTextField = new JTextField();
 
-    private final JLabel socketLabel = new JLabel("Socket");
-    private final JTextField socketTextField = new JTextField();
+    private final @NonNull JLabel socketLabel = new JLabel("Socket");
+    private final @NonNull JTextField socketTextField = new JTextField();
 
-    private final JLabel baseClockLabel = new JLabel("Base Clock");
-    private final JTextField baseClockTextField = new JTextField();
+    private final @NonNull JLabel baseClockLabel = new JLabel("Base Clock");
+    private final @NonNull JTextField baseClockTextField = new JTextField();
 
     // secondary info panel components
-    private final JLabel versionLabel = new JLabel("Version");
-    private final JTextField versionTextField = new JTextField();
+    private final @NonNull JLabel versionLabel = new JLabel("Version");
+    private final @NonNull JTextField versionTextField = new JTextField();
 
-    private final JLabel familyLabel = new JLabel("Family");
-    private final JTextField familyTextField = new JTextField();
+    private final @NonNull JLabel familyLabel = new JLabel("Family");
+    private final @NonNull JTextField familyTextField = new JTextField();
 
-    private final JLabel steppingLabel = new JLabel("Stepping");
-    private final JTextField steppingTextField = new JTextField();
+    private final @NonNull JLabel steppingLabel = new JLabel("Stepping");
+    private final @NonNull JTextField steppingTextField = new JTextField();
 
-    private final JLabel manufacturerLabel = new JLabel("Manufacturer");
-    private final JTextField manufacturerTextField = new JTextField();
+    private final @NonNull JLabel manufacturerLabel = new JLabel("Manufacturer");
+    private final @NonNull JTextField manufacturerTextField = new JTextField();
 
-    private final JLabel captionLabel = new JLabel("Caption");
-    private final JTextField captionTextField = new JTextField();
+    private final @NonNull JLabel captionLabel = new JLabel("Caption");
+    private final @NonNull JTextField captionTextField = new JTextField();
 
-    private final JLabel processorIdLabel = new JLabel("Processor ID");
-    private final JTextField processorIdTextField = new JTextField();
+    private final @NonNull JLabel processorIdLabel = new JLabel("Processor ID");
+    private final @NonNull JTextField processorIdTextField = new JTextField();
 
-    private final JLabel enabledCoresLabel = new JLabel("Enabled Cores");
-    private final JTextField enabledCoresTextField = new JTextField();
+    private final @NonNull JLabel enabledCoresLabel = new JLabel("Enabled Cores");
+    private final @NonNull JTextField enabledCoresTextField = new JTextField();
 
-    private final JLabel enabledThreadsLabel = new JLabel("Enabled Threads");
-    private final JTextField enabledThreadsTextField = new JTextField();
+    private final @NonNull JLabel enabledThreadsLabel = new JLabel("Enabled Threads");
+    private final @NonNull JTextField enabledThreadsTextField = new JTextField();
 
-    private final JLabel cpuArchitectureLabel = new JLabel("Architecture");
-    private final JTextField cpuArchitectureTextField = new JTextField();
+    private final @NonNull JLabel cpuArchitectureLabel = new JLabel("Architecture");
+    private final @NonNull JTextField cpuArchitectureTextField = new JTextField();
 
     // tertiary panel components
-    private final JTextArea cpuConciseInfoTextArea = new JTextArea();
-    private final JTextArea cacheTextArea = new JTextArea();
+    private final @NonNull JTextArea cpuConciseInfoTextArea = new JTextArea();
+    private final @NonNull JTextArea cacheTextArea = new JTextArea();
 
 
-    public WMIProcessorPanel initUI() {
+    public @NonNull WMIProcessorPanel initUI() {
 
         setLayout(new MigLayout(" insets 0", "[grow][grow]", "[][grow][grow][grow]"));
 
         return this;
     }
 
-    public WMIProcessorPanel initComponents() {
+    public @NonNull WMIProcessorPanel initComponents() {
         add(new JScrollPane(createHardwareIdPanel()), "cell 0 0 2 1, grow");
         add(new JScrollPane(createPrimaryInfoPanel()), "cell 0 1 2 1, grow");
         add(new JScrollPane(createSecondaryInfoPanel()), "cell 0 2 2 1, grow");
@@ -106,7 +107,7 @@ public class WMIProcessorPanel extends JPanel {
         return this;
     }
 
-    private JPanel createHardwareIdPanel() {
+    private @NonNull JPanel createHardwareIdPanel() {
 
         final JPanel hardwareIdPanel = new JPanel();
         hardwareIdPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "HardwareID", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -126,7 +127,7 @@ public class WMIProcessorPanel extends JPanel {
         return hardwareIdPanel;
     }
 
-    private JPanel createPrimaryInfoPanel() {
+    private @NonNull JPanel createPrimaryInfoPanel() {
 
         final JPanel primaryInfoPanel = new JPanel();
         primaryInfoPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Primary Information", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -167,7 +168,7 @@ public class WMIProcessorPanel extends JPanel {
         return primaryInfoPanel;
     }
 
-    private JPanel createSecondaryInfoPanel() {
+    private @NonNull JPanel createSecondaryInfoPanel() {
 
         final JPanel secondaryInfoPanel = new JPanel();
         secondaryInfoPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Secondary Information", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -213,7 +214,7 @@ public class WMIProcessorPanel extends JPanel {
         return secondaryInfoPanel;
     }
 
-    private JPanel createConciseCpuInfoPanel() {
+    private @NonNull JPanel createConciseCpuInfoPanel() {
 
         final JPanel cpuConciseInfoPanel = new JPanel();
         cpuConciseInfoPanel.setLayout(new GridLayout(1, 0, 0, 0));
@@ -227,7 +228,7 @@ public class WMIProcessorPanel extends JPanel {
         return cpuConciseInfoPanel;
     }
 
-    private JPanel createCachePanel() {
+    private @NonNull JPanel createCachePanel() {
 
         final JPanel cacheInfoPanel = new JPanel();
         cacheInfoPanel.setLayout(new GridLayout(1, 0, 0, 0));
@@ -241,7 +242,7 @@ public class WMIProcessorPanel extends JPanel {
         return cacheInfoPanel;
     }
 
-    public WMIProcessorPanel initWorkers() {
+    public @NonNull WMIProcessorPanel initWorkers() {
         new WMIHardwareIdWorker(hardwareIdTextField).execute();
 
         List<JTextField> cpuFields = List.of(coreTextField, threadTextField, effectiveClockTextField, cpuNameTextField,

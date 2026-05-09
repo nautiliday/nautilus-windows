@@ -11,6 +11,7 @@ import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIDateResolver;
 import io.github.eggy03.nautilus.windows.worker.typeresolver.WMISizeResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -25,11 +26,11 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class WMIVideoControllerPanelWorker extends SwingWorker<Map<String, Win32VideoController>, Void> {
 
-    private final JComboBox<String> gpuDeviceIdComboBox;
-    private final List<JTextField> gpuFields;
+    private final @NonNull JComboBox<String> gpuDeviceIdComboBox;
+    private final @NonNull List<JTextField> gpuFields;
 
     @Override
-    protected Map<String, Win32VideoController> doInBackground() {
+    protected @NonNull Map<String, Win32VideoController> doInBackground() {
 
         List<Win32VideoController> videoList = new Win32VideoControllerService().get(TerminalConstant.TIMEOUT_SIXTY_SECONDS);
         log.info("Found {} Win32_VideoController entry(s)", videoList.size());
@@ -62,7 +63,7 @@ public class WMIVideoControllerPanelWorker extends SwingWorker<Map<String, Win32
         }
     }
 
-    private void populateFields(Map<String, Win32VideoController> videoMap) {
+    private void populateFields(@NonNull Map<String, Win32VideoController> videoMap) {
 
         String gpuDeviceId = String.valueOf(gpuDeviceIdComboBox.getSelectedItem());
 

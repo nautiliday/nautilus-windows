@@ -8,9 +8,9 @@ import io.github.eggy03.cimari.entity.mainboard.Win32Bios;
 import io.github.eggy03.cimari.service.mainboard.Win32BiosService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
 import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIDateResolver;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -32,7 +32,7 @@ public class WMIBiosWorker extends SwingWorker<Map<Integer, Win32Bios>, Void> {
     private final List<JTextField> biosFields;
 
     @Override
-    protected Map<Integer, Win32Bios> doInBackground() {
+    protected @NonNull Map<Integer, Win32Bios> doInBackground() {
 
         List<Win32Bios> biosList = new Win32BiosService().get(TerminalConstant.TIMEOUT_SIXTY_SECONDS)
                 .stream()
@@ -67,7 +67,7 @@ public class WMIBiosWorker extends SwingWorker<Map<Integer, Win32Bios>, Void> {
 
     }
 
-    private void populateBiosFields(Map<Integer, Win32Bios> biosMap) {
+    private void populateBiosFields(@NonNull Map<Integer, Win32Bios> biosMap) {
 
         Integer selectedBiosNumber = (Integer) biosNumberComboBox.getSelectedItem();
 

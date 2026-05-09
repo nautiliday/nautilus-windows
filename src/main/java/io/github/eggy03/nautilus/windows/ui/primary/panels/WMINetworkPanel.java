@@ -7,6 +7,7 @@ package io.github.eggy03.nautilus.windows.ui.primary.panels;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import io.github.eggy03.nautilus.windows.worker.WMINetworkPanelWorker;
 import net.miginfocom.swing.MigLayout;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
@@ -27,72 +28,72 @@ public class WMINetworkPanel extends JPanel {
     // the main panel consists of 1 sub panel and 1 tabbed pane which has 3 editor panes
 
     // network panel components
-    private final JLabel networkInterfaceIdLabel = new JLabel("Interface#");
-    private final JComboBox<Long> networkInterfaceIdComboBox = new JComboBox<>();
+    private final @NonNull JLabel networkInterfaceIdLabel = new JLabel("Interface#");
+    private final @NonNull JComboBox<Long> networkInterfaceIdComboBox = new JComboBox<>();
 
-    private final JLabel networkDeviceIdLabel = new JLabel("DeviceID");
-    private final JTextField networkDeviceIdTextField = new JTextField();
+    private final @NonNull JLabel networkDeviceIdLabel = new JLabel("DeviceID");
+    private final @NonNull JTextField networkDeviceIdTextField = new JTextField();
 
-    private final JLabel networkNameLabel = new JLabel("Name");
-    private final JTextField networkNameTextField = new JTextField();
+    private final @NonNull JLabel networkNameLabel = new JLabel("Name");
+    private final @NonNull JTextField networkNameTextField = new JTextField();
 
-    private final JLabel networkDriverVersionLabel = new JLabel("Driver Version");
-    private final JTextField networkDriverVersionTextField = new JTextField();
+    private final @NonNull JLabel networkDriverVersionLabel = new JLabel("Driver Version");
+    private final @NonNull JTextField networkDriverVersionTextField = new JTextField();
 
-    private final JLabel networkDriverDateLabel = new JLabel("Driver Date");
-    private final JTextField networkDriverDateTextField = new JTextField();
+    private final @NonNull JLabel networkDriverDateLabel = new JLabel("Driver Date");
+    private final @NonNull JTextField networkDriverDateTextField = new JTextField();
 
-    private final JLabel networkTypeLabel = new JLabel("Type");
-    private final JTextField networkTypeTextField = new JTextField();
+    private final @NonNull JLabel networkTypeLabel = new JLabel("Type");
+    private final @NonNull JTextField networkTypeTextField = new JTextField();
 
-    private final JLabel networkLinkLayerAddressLabel = new JLabel("MAC");
-    private final JTextField networkLinkLayerAddressTextField = new JTextField();
+    private final @NonNull JLabel networkLinkLayerAddressLabel = new JLabel("MAC");
+    private final @NonNull JTextField networkLinkLayerAddressTextField = new JTextField();
 
-    private final JLabel networkLinkSpeedLabel = new JLabel("Link Speed");
-    private final JTextField networkLinkSpeedTextField = new JTextField();
+    private final @NonNull JLabel networkLinkSpeedLabel = new JLabel("Link Speed");
+    private final @NonNull JTextField networkLinkSpeedTextField = new JTextField();
 
-    private final JLabel networkMediaConnectStateLabel = new JLabel("Connect State");
-    private final JTextField networkMediaConnectStateTextField = new JTextField();
+    private final @NonNull JLabel networkMediaConnectStateLabel = new JLabel("Connect State");
+    private final @NonNull JTextField networkMediaConnectStateTextField = new JTextField();
 
-    private final JLabel networkMediaConnectTypeLabel = new JLabel("Connect Type");
-    private final JTextField networkMediaConnectTypeTextField = new JTextField();
+    private final @NonNull JLabel networkMediaConnectTypeLabel = new JLabel("Connect Type");
+    private final @NonNull JTextField networkMediaConnectTypeTextField = new JTextField();
 
-    private final JLabel networkReceiveLinkSpeedLabel = new JLabel("Receive Speed");
-    private final JTextField networkReceiveLinkSpeedTextField = new JTextField();
+    private final @NonNull JLabel networkReceiveLinkSpeedLabel = new JLabel("Receive Speed");
+    private final @NonNull JTextField networkReceiveLinkSpeedTextField = new JTextField();
 
-    private final JLabel networkTransmitLinkSpeedLabel = new JLabel("Transmit Speed");
-    private final JTextField networkTransmitLinkSpeedTextField = new JTextField();
+    private final @NonNull JLabel networkTransmitLinkSpeedLabel = new JLabel("Transmit Speed");
+    private final @NonNull JTextField networkTransmitLinkSpeedTextField = new JTextField();
 
-    private final JLabel networkDuplexityLabel = new JLabel("Full Duplex");
-    private final JTextField networkDuplexityTextField = new JTextField();
+    private final @NonNull JLabel networkDuplexityLabel = new JLabel("Full Duplex");
+    private final @NonNull JTextField networkDuplexityTextField = new JTextField();
 
-    private final JLabel networkVirtualityLabel = new JLabel("Virtual");
-    private final JTextField networkVirtualityTextField = new JTextField();
+    private final @NonNull JLabel networkVirtualityLabel = new JLabel("Virtual");
+    private final @NonNull JTextField networkVirtualityTextField = new JTextField();
 
-    private final JLabel networkStatusLabel = new JLabel("Status");
-    private final JTextField networkStatusTextField = new JTextField();
+    private final @NonNull JLabel networkStatusLabel = new JLabel("Status");
+    private final @NonNull JTextField networkStatusTextField = new JTextField();
 
-    private final JLabel networkPnPDeviceIdLabel = new JLabel("PnP DeviceID");
-    private final JTextField networkPnPDeviceIdTextField = new JTextField();
+    private final @NonNull JLabel networkPnPDeviceIdLabel = new JLabel("PnP DeviceID");
+    private final @NonNull JTextField networkPnPDeviceIdTextField = new JTextField();
 
     // network tabbed pane components
-    private final JEditorPane adapterIpEditorPane = new JEditorPane();
-    private final JEditorPane adapterDnsEditorPane = new JEditorPane();
-    private final JEditorPane adapterConnectionProfileEditorPane = new JEditorPane();
+    private final @NonNull JEditorPane adapterIpEditorPane = new JEditorPane();
+    private final @NonNull JEditorPane adapterDnsEditorPane = new JEditorPane();
+    private final @NonNull JEditorPane adapterConnectionProfileEditorPane = new JEditorPane();
 
-    public WMINetworkPanel initUI() {
+    public @NonNull WMINetworkPanel initUI() {
         setLayout(new GridLayout(2, 1, 0, 0));
         return this;
     }
 
-    public WMINetworkPanel initComponents() {
+    public @NonNull WMINetworkPanel initComponents() {
         add(new JScrollPane(createAdapterPanel()));
         add(createAdapterPropertyTabbedPane());
 
         return this;
     }
 
-    private JPanel createAdapterPanel() {
+    private @NonNull JPanel createAdapterPanel() {
 
         final JPanel adapterPanel = new JPanel();
         adapterPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Adapter", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -164,7 +165,7 @@ public class WMINetworkPanel extends JPanel {
         return adapterPanel;
     }
 
-    private JTabbedPane createAdapterPropertyTabbedPane() {
+    private @NonNull JTabbedPane createAdapterPropertyTabbedPane() {
 
         final JTabbedPane adapterPropertyTabbedPane = new JTabbedPane(SwingConstants.TOP);
 
@@ -204,7 +205,7 @@ public class WMINetworkPanel extends JPanel {
         return adapterPropertyTabbedPane;
     }
 
-    public WMINetworkPanel initWorkers() {
+    public @NonNull WMINetworkPanel initWorkers() {
 
         List<JTextField> adapterFields = List.of(networkDeviceIdTextField, networkNameTextField,
                 networkDriverVersionTextField, networkDriverDateTextField, networkTypeTextField,

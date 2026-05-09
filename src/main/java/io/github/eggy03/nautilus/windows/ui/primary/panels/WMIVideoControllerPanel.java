@@ -6,6 +6,7 @@ package io.github.eggy03.nautilus.windows.ui.primary.panels;
 
 import io.github.eggy03.nautilus.windows.worker.WMIVideoControllerPanelWorker;
 import net.miginfocom.swing.MigLayout;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -19,56 +20,56 @@ import java.util.List;
 public class WMIVideoControllerPanel extends JPanel {
 
     // identifier panel
-    private final JLabel gpuDeviceIdLabel = new JLabel("Device ID");
-    private final JComboBox<String> gpuDeviceIdComboBox = new JComboBox<>();
+    private final @NonNull JLabel gpuDeviceIdLabel = new JLabel("Device ID");
+    private final @NonNull JComboBox<String> gpuDeviceIdComboBox = new JComboBox<>();
 
-    private final JLabel gpuNameLabel = new JLabel("Name");
-    private final JTextField gpuNameTextField = new JTextField();
+    private final @NonNull JLabel gpuNameLabel = new JLabel("Name");
+    private final @NonNull JTextField gpuNameTextField = new JTextField();
 
-    private final JLabel gpuPnPDeviceIdLabel = new JLabel("PnP Dev. ID");
-    private final JTextField gpuPnPDeviceIdTextField = new JTextField();
+    private final @NonNull JLabel gpuPnPDeviceIdLabel = new JLabel("PnP Dev. ID");
+    private final @NonNull JTextField gpuPnPDeviceIdTextField = new JTextField();
 
     // display panel
-    private final JLabel gpuHorizontalResLabel = new JLabel("Horizontal Res.");
-    private final JTextField gpuHorizontalResTextField = new JTextField();
+    private final @NonNull JLabel gpuHorizontalResLabel = new JLabel("Horizontal Res.");
+    private final @NonNull JTextField gpuHorizontalResTextField = new JTextField();
 
-    private final JLabel gpuVerticalResLabel = new JLabel("Vertical Res.");
-    private final JTextField gpuVerticalResTextField = new JTextField();
+    private final @NonNull JLabel gpuVerticalResLabel = new JLabel("Vertical Res.");
+    private final @NonNull JTextField gpuVerticalResTextField = new JTextField();
 
-    private final JLabel gpuBitsPerPixelLabel = new JLabel("Bits Per Pixel");
-    private final JTextField gpuBitsPerPixelTextField = new JTextField();
+    private final @NonNull JLabel gpuBitsPerPixelLabel = new JLabel("Bits Per Pixel");
+    private final @NonNull JTextField gpuBitsPerPixelTextField = new JTextField();
 
-    private final JLabel gpuMinRefreshRateLabel = new JLabel("Min Refresh Rate");
-    private final JTextField gpuMinRefreshRateTextField = new JTextField();
+    private final @NonNull JLabel gpuMinRefreshRateLabel = new JLabel("Min Refresh Rate");
+    private final @NonNull JTextField gpuMinRefreshRateTextField = new JTextField();
 
-    private final JLabel gpuMaxRefreshRateLabel = new JLabel("Max Refresh Rate");
-    private final JTextField gpuMaxRefreshRateTextField = new JTextField();
+    private final @NonNull JLabel gpuMaxRefreshRateLabel = new JLabel("Max Refresh Rate");
+    private final @NonNull JTextField gpuMaxRefreshRateTextField = new JTextField();
 
-    private final JLabel gpuCurrentRefreshRateLabel = new JLabel("Current Refresh Rate");
-    private final JTextField gpuCurrentRefreshRateTextField = new JTextField();
+    private final @NonNull JLabel gpuCurrentRefreshRateLabel = new JLabel("Current Refresh Rate");
+    private final @NonNull JTextField gpuCurrentRefreshRateTextField = new JTextField();
 
     // driver panel
-    private final JLabel gpuAdapterDACTypeLabel = new JLabel("Adapter DAC Type");
-    private final JTextField gpuAdapterDACTypeTextField = new JTextField();
+    private final @NonNull JLabel gpuAdapterDACTypeLabel = new JLabel("Adapter DAC Type");
+    private final @NonNull JTextField gpuAdapterDACTypeTextField = new JTextField();
 
-    private final JLabel gpuVRAMLabel = new JLabel("VRAM");
-    private final JTextField gpuVRAMTextField = new JTextField();
+    private final @NonNull JLabel gpuVRAMLabel = new JLabel("VRAM");
+    private final @NonNull JTextField gpuVRAMTextField = new JTextField();
 
-    private final JLabel gpuDriverVersionLabel = new JLabel("Driver Version");
-    private final JTextField gpuDriverVersionTextField = new JTextField();
+    private final @NonNull JLabel gpuDriverVersionLabel = new JLabel("Driver Version");
+    private final @NonNull JTextField gpuDriverVersionTextField = new JTextField();
 
-    private final JLabel gpuDriverDateLabel = new JLabel("Driver Date");
-    private final JTextField gpuDriverDateTextField = new JTextField();
+    private final @NonNull JLabel gpuDriverDateLabel = new JLabel("Driver Date");
+    private final @NonNull JTextField gpuDriverDateTextField = new JTextField();
 
-    private final JLabel gpuVideoProcessorLabel = new JLabel("Video Processor");
-    private final JTextField gpuVideoProcessorTextField = new JTextField();
+    private final @NonNull JLabel gpuVideoProcessorLabel = new JLabel("Video Processor");
+    private final @NonNull JTextField gpuVideoProcessorTextField = new JTextField();
 
-    public WMIVideoControllerPanel initUI() {
+    public @NonNull WMIVideoControllerPanel initUI() {
         setLayout(new MigLayout("insets 0", "[grow][grow]", "[grow][grow]"));
         return this;
     }
 
-    public WMIVideoControllerPanel initComponents() {
+    public @NonNull WMIVideoControllerPanel initComponents() {
         add(new JScrollPane(createIdentifierPanel()), "cell 0 0 2 1, grow");
         add(new JScrollPane(createDisplayPanel()), "cell 0 1, grow");
         add(new JScrollPane(createDriverPanel()), "cell 1 1, grow");
@@ -76,7 +77,7 @@ public class WMIVideoControllerPanel extends JPanel {
         return this;
     }
 
-    private JPanel createIdentifierPanel() {
+    private @NonNull JPanel createIdentifierPanel() {
 
         final JPanel identifierPanel = new JPanel();
         identifierPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Identifier", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -97,7 +98,7 @@ public class WMIVideoControllerPanel extends JPanel {
         return identifierPanel;
     }
 
-    private JPanel createDisplayPanel() {
+    private @NonNull JPanel createDisplayPanel() {
 
         final JPanel displayPanel = new JPanel();
         displayPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Display", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -131,7 +132,7 @@ public class WMIVideoControllerPanel extends JPanel {
         return displayPanel;
     }
 
-    private JPanel createDriverPanel() {
+    private @NonNull JPanel createDriverPanel() {
 
         final JPanel driverPanel = new JPanel();
         driverPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Driver", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -161,7 +162,7 @@ public class WMIVideoControllerPanel extends JPanel {
         return driverPanel;
     }
 
-    public WMIVideoControllerPanel initWorkers() {
+    public @NonNull WMIVideoControllerPanel initWorkers() {
 
         List<JTextField> gpuFields = List.of(
                 gpuNameTextField, gpuPnPDeviceIdTextField, gpuHorizontalResTextField, gpuVerticalResTextField,

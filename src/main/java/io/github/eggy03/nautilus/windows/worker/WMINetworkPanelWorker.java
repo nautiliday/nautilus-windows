@@ -16,6 +16,7 @@ import io.github.eggy03.nautilus.windows.worker.typeresolver.WMINetworkResolver;
 import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
@@ -31,12 +32,12 @@ import java.util.stream.Collectors;
 @Slf4j
 public class WMINetworkPanelWorker extends SwingWorker<Map<Long, MsftNetAdapterToIpAndDnsAndProfile>, Void> {
 
-    private final JComboBox<Long> networkIndexComboBox;
-    private final List<JTextField> networkFields;
-    private final List<JEditorPane> networkEditorPanes;
+    private final @NonNull JComboBox<Long> networkIndexComboBox;
+    private final @NonNull List<JTextField> networkFields;
+    private final @NonNull List<JEditorPane> networkEditorPanes;
 
     @Override
-    protected Map<Long, MsftNetAdapterToIpAndDnsAndProfile> doInBackground() {
+    protected @NonNull Map<Long, MsftNetAdapterToIpAndDnsAndProfile> doInBackground() {
 
         List<MsftNetAdapterToIpAndDnsAndProfile> netList = new MsftNetAdapterToIpAndDnsAndProfileService().get(TerminalConstant.TIMEOUT_SIXTY_SECONDS);
         log.info("Found {} MSFT_NetAdapter entry(s)", netList.size());
@@ -71,7 +72,7 @@ public class WMINetworkPanelWorker extends SwingWorker<Map<Long, MsftNetAdapterT
         }
     }
 
-    private void populate(Map<Long, MsftNetAdapterToIpAndDnsAndProfile> netMap) {
+    private void populate(@NonNull Map<Long, MsftNetAdapterToIpAndDnsAndProfile> netMap) {
 
         Long interfaceIndex = (Long) networkIndexComboBox.getSelectedItem();
 

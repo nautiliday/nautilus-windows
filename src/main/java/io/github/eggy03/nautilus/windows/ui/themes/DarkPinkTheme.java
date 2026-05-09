@@ -8,13 +8,4 @@ import com.formdev.flatlaf.FlatDarkLaf;
 
 public class DarkPinkTheme extends FlatDarkLaf {
 
-    public static boolean setup() {
-        return setup(new DarkPinkTheme());
-    }
-
-    @Override
-    public String getName() {
-        return "DarkPinkTheme";
-    }
-
 }

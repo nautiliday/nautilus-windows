@@ -5,8 +5,8 @@
 package io.github.eggy03.nautilus.windows.worker.typeresolver;
 
 import lombok.experimental.UtilityClass;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -46,7 +46,7 @@ public class WMINetworkResolver {
      * @return the formatted speed in Mbps,
      * or {@code "N/A"} if the value is null
      */
-    @NotNull
+    @NonNull
     public static String resolveNetworkSpeedInMbps(@Nullable Long speedInBitsPerSecond) {
         if (speedInBitsPerSecond == null)
             return "N/A";

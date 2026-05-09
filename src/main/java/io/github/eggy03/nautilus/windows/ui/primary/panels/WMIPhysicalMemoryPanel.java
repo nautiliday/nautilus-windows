@@ -6,6 +6,7 @@ package io.github.eggy03.nautilus.windows.ui.primary.panels;
 
 import io.github.eggy03.nautilus.windows.worker.WMIPhysicalMemoryPanelWorker;
 import net.miginfocom.swing.MigLayout;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -17,50 +18,50 @@ import java.util.List;
 
 public class WMIPhysicalMemoryPanel extends JPanel {
 
-    private final JLabel slotLabel = new JLabel("Slot#");
-    private final JComboBox<String> slotComboBox = new JComboBox<>();
+    private final @NonNull JLabel slotLabel = new JLabel("Slot#");
+    private final @NonNull JComboBox<String> slotComboBox = new JComboBox<>();
 
-    private final JLabel nameLabel = new JLabel("Name");
-    private final JTextField nameTextField = new JTextField();
+    private final @NonNull JLabel nameLabel = new JLabel("Name");
+    private final @NonNull JTextField nameTextField = new JTextField();
 
-    private final JLabel manufacturerLabel = new JLabel("Manufacturer");
-    private final JTextField manufacturerTextField = new JTextField();
+    private final @NonNull JLabel manufacturerLabel = new JLabel("Manufacturer");
+    private final @NonNull JTextField manufacturerTextField = new JTextField();
 
-    private final JLabel modelLabel = new JLabel("Model");
-    private final JTextField modelTextField = new JTextField();
+    private final @NonNull JLabel modelLabel = new JLabel("Model");
+    private final @NonNull JTextField modelTextField = new JTextField();
 
-    private final JLabel otherIdLabel = new JLabel("Other ID");
-    private final JTextField oidTextField = new JTextField();
+    private final @NonNull JLabel otherIdLabel = new JLabel("Other ID");
+    private final @NonNull JTextField oidTextField = new JTextField();
 
-    private final JLabel partNumberLabel = new JLabel("Part Number");
-    private final JTextField partNumberTextField = new JTextField();
+    private final @NonNull JLabel partNumberLabel = new JLabel("Part Number");
+    private final @NonNull JTextField partNumberTextField = new JTextField();
 
-    private final JLabel serialNumberLabel = new JLabel("Serial Number");
-    private final JTextField serialTextField = new JTextField();
+    private final @NonNull JLabel serialNumberLabel = new JLabel("Serial Number");
+    private final @NonNull JTextField serialTextField = new JTextField();
 
-    private final JLabel formFactorLabel = new JLabel("Form Factor");
-    private final JTextField formFactorTextField = new JTextField();
+    private final @NonNull JLabel formFactorLabel = new JLabel("Form Factor");
+    private final @NonNull JTextField formFactorTextField = new JTextField();
 
-    private final JLabel bankLabel = new JLabel("Bank Label");
-    private final JTextField bankLabelTextField = new JTextField();
+    private final @NonNull JLabel bankLabel = new JLabel("Bank Label");
+    private final @NonNull JTextField bankLabelTextField = new JTextField();
 
-    private final JLabel capacityLabel = new JLabel("Capacity");
-    private final JTextField capacityTextField = new JTextField();
+    private final @NonNull JLabel capacityLabel = new JLabel("Capacity");
+    private final @NonNull JTextField capacityTextField = new JTextField();
 
-    private final JLabel dataWidthLabel = new JLabel("Data Width");
-    private final JTextField dataWidthTextField = new JTextField();
+    private final @NonNull JLabel dataWidthLabel = new JLabel("Data Width");
+    private final @NonNull JTextField dataWidthTextField = new JTextField();
 
-    private final JLabel speedLabel = new JLabel("Speed");
-    private final JTextField speedTextField = new JTextField();
+    private final @NonNull JLabel speedLabel = new JLabel("Speed");
+    private final @NonNull JTextField speedTextField = new JTextField();
 
-    private final JLabel configSpeedLabel = new JLabel("Configured Speed");
-    private final JTextField configSpeedTextField = new JTextField();
+    private final @NonNull JLabel configSpeedLabel = new JLabel("Configured Speed");
+    private final @NonNull JTextField configSpeedTextField = new JTextField();
 
-    private final JLabel deviceLocatorLabel = new JLabel("Device Locator");
-    private final JTextField deviceLocatorTextField = new JTextField();
+    private final @NonNull JLabel deviceLocatorLabel = new JLabel("Device Locator");
+    private final @NonNull JTextField deviceLocatorTextField = new JTextField();
 
 
-    public WMIPhysicalMemoryPanel initUI() {
+    public @NonNull WMIPhysicalMemoryPanel initUI() {
 
         setLayout(new MigLayout("insets 0", "[][grow]", "[][][][][][][][][][][][][][]"));
         setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Memory", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -69,7 +70,7 @@ public class WMIPhysicalMemoryPanel extends JPanel {
     }
 
 
-    public WMIPhysicalMemoryPanel initComponents() {
+    public @NonNull WMIPhysicalMemoryPanel initComponents() {
 
         add(slotLabel, "cell 0 0,alignx leading");
         add(slotComboBox, "cell 1 0,growx");
@@ -130,7 +131,7 @@ public class WMIPhysicalMemoryPanel extends JPanel {
         return this;
     }
 
-    public WMIPhysicalMemoryPanel initWorkers() {
+    public @NonNull WMIPhysicalMemoryPanel initWorkers() {
 
         List<JTextField> memoryFields = List.of(nameTextField, manufacturerTextField, modelTextField, oidTextField,
                 partNumberTextField, serialTextField, formFactorTextField, bankLabelTextField, capacityTextField,

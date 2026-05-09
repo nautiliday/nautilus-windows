@@ -12,7 +12,7 @@ import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
 import io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
@@ -35,12 +35,12 @@ import static io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueReso
 @Slf4j
 public class WMIProcessorPanelWorker extends SwingWorker<Map<String, Win32ProcessorToCacheMemory>, Void> {
 
-    private final JComboBox<String> cpuIdComboBox;
-    private final List<JTextField> cpuFields;
-    private final List<JTextArea> cpuTextAreas;
+    private final @NonNull JComboBox<String> cpuIdComboBox;
+    private final @NonNull List<JTextField> cpuFields;
+    private final @NonNull List<JTextArea> cpuTextAreas;
 
     @Override
-    protected @NotNull Map<String, Win32ProcessorToCacheMemory> doInBackground() {
+    protected @NonNull Map<String, Win32ProcessorToCacheMemory> doInBackground() {
         List<Win32ProcessorToCacheMemory> cpuList = new Win32ProcessorToCacheMemoryService().get(TerminalConstant.TIMEOUT_SIXTY_SECONDS);
         log.info("Found {} Win32_Processor entry(s)", cpuList.size());
 
@@ -73,7 +73,7 @@ public class WMIProcessorPanelWorker extends SwingWorker<Map<String, Win32Proces
     }
 
     // populate the fields based on the current cpu-id in the combo-box
-    private void populate(Map<String, Win32ProcessorToCacheMemory> cpuMap) {
+    private void populate(@NonNull Map<String, Win32ProcessorToCacheMemory> cpuMap) {
 
         String deviceId = String.valueOf(cpuIdComboBox.getSelectedItem());
 

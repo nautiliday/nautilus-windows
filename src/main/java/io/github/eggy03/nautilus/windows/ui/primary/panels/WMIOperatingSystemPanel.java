@@ -7,6 +7,7 @@ package io.github.eggy03.nautilus.windows.ui.primary.panels;
 import io.github.eggy03.nautilus.windows.worker.WMIOperatingSystemWorker;
 import io.github.eggy03.nautilus.windows.worker.WMIUserAccountWorker;
 import net.miginfocom.swing.MigLayout;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -24,88 +25,92 @@ public class WMIOperatingSystemPanel extends JPanel {
     // Init Components in the main panel
     // the main panel consists of 2 sub panels
 
-    private final JComboBox<String> osCurrentOsComboBox = new JComboBox<>();
-    private final JTextArea osConciseInfoTextArea = new JTextArea();
-    private final JTextField osCaptionTextField = new JTextField();
-    private final JTextField osVersionTextField = new JTextField();
-    private final JTextField osBuildNumberTextField = new JTextField();
-    private final JTextField osManufacturerTextField = new JTextField();
-    private final JTextField osArchitectureTextField = new JTextField();
-    private final JTextField osInstallDateTextField = new JTextField();
-    private final JTextField osLastBootupTimeTextField = new JTextField();
-    private final JTextField osSerialNumberTextField = new JTextField();
-    private final JTextField osLanguagesTextField = new JTextField();
-    private final JTextField osPrimaryTextField = new JTextField();
-    private final JTextField osDistributedTextField = new JTextField();
-    private final JTextField osPortableTextField = new JTextField();
-    private final JTextField osDeviceNameTextField = new JTextField();
-    private final JTextField osUserCountTextField = new JTextField();
-    private final JTextField osRegisteredUserTextField = new JTextField();
-    private final JTextField osSystemDriveTextField = new JTextField();
-    private final JTextField osWindowsDirectoryTextField = new JTextField();
-    private final JTextField osSystemDirectoryTextField = new JTextField();
-    // User Account Components
-    private final JLabel userSIDLabel = new JLabel("SID");
-    private final JComboBox<String> userAccountSIDComboBox = new JComboBox<>();
-    private final JLabel userNameLabel = new JLabel("Name");
-    private final JTextField userNameTextField = new JTextField();
-    private final JLabel userCaptionLabel = new JLabel("Caption");
-    private final JTextField userCaptionTextField = new JTextField();
-    private final JLabel userDomainLabel = new JLabel("Domain");
-    private final JTextField userDomainTextField = new JTextField();
-    private final JLabel userDescriptionLabel = new JLabel("Description");
-    private final JTextField userDescriptionTextField = new JTextField();
-    private final JLabel userPasswordRequiredLabel = new JLabel("Password Required");
-    private final JTextField userPasswordRequiredTextField = new JTextField();
-    private final JLabel userPasswordChangeableLabel = new JLabel("Password Changeable");
-    private final JTextField userPasswordChangeableTextField = new JTextField();
-    private final JLabel userPasswordExpiresLabel = new JLabel("Password Expires");
-    private final JTextField userPasswordExpiresTextField = new JTextField();
-    private final JLabel userLocalAccountLabel = new JLabel("Local Account");
-    private final JTextField userLocalAccountTextField = new JTextField();
-    private final JLabel userDisabledLabel = new JLabel("Disabled");
-    private final JTextField userDisabledTextField = new JTextField();
-    private final JLabel userLockedOutLabel = new JLabel("Locked Out");
-    private final JTextField userLockedOutTextField = new JTextField();
-    private final JLabel userAccountTypeLabel = new JLabel("Account Type");
-    private final JTextField userAccountTypeTextField = new JTextField();
-    private final JLabel userSIDTypeLabel = new JLabel("SID Type");
-    private final JTextField userSIDTypeTextField = new JTextField();
-    private final JLabel userStatusLabel = new JLabel("Status");
-    private final JTextField userStatusTextField = new JTextField();
     // OS Panel Components
-    private final JLabel osCurrentOsLabel = new JLabel("CurrentOS");
-    private final JLabel osCaptionLabel = new JLabel("Caption");
-    private final JLabel osVersionLabel = new JLabel("Version");
-    private final JLabel osBuildNumberLabel = new JLabel("Build Number");
-    private final JLabel osManufacturerLabel = new JLabel("Manufacturer");
-    private final JLabel osArchitectureLabel = new JLabel("Architecture");
-    private final JLabel osInstallDateLabel = new JLabel("Install Date");
-    private final JLabel osLastBootupTimeLabel = new JLabel("Last Bootup Time");
-    private final JLabel osSerialNumberLabel = new JLabel("Serial Number");
-    private final JLabel osLanguagesLabel = new JLabel("Languages");
-    private final JLabel osPrimaryLabel = new JLabel("Primary");
-    private final JLabel osDistributedLabel = new JLabel("Distributed");
-    private final JLabel osPortableLabel = new JLabel("Portable");
-    private final JLabel osDeviceNameLabel = new JLabel("Device Name");
-    private final JLabel osUserCountLabel = new JLabel("User Count");
-    private final JLabel osRegisteredUserLabel = new JLabel("Registered User");
-    private final JLabel osSystemDriveLabel = new JLabel("System Drive");
-    private final JLabel osWindowsDirectoryLabel = new JLabel("Windows Directory");
-    private final JLabel osSystemDirectoryLabel = new JLabel("System Directory");
+    private final @NonNull JLabel osCurrentOsLabel = new JLabel("CurrentOS");
+    private final @NonNull JLabel osCaptionLabel = new JLabel("Caption");
+    private final @NonNull JLabel osVersionLabel = new JLabel("Version");
+    private final @NonNull JLabel osBuildNumberLabel = new JLabel("Build Number");
+    private final @NonNull JLabel osManufacturerLabel = new JLabel("Manufacturer");
+    private final @NonNull JLabel osArchitectureLabel = new JLabel("Architecture");
+    private final @NonNull JLabel osInstallDateLabel = new JLabel("Install Date");
+    private final @NonNull JLabel osLastBootupTimeLabel = new JLabel("Last Bootup Time");
+    private final @NonNull JLabel osSerialNumberLabel = new JLabel("Serial Number");
+    private final @NonNull JLabel osLanguagesLabel = new JLabel("Languages");
+    private final @NonNull JLabel osPrimaryLabel = new JLabel("Primary");
+    private final @NonNull JLabel osDistributedLabel = new JLabel("Distributed");
+    private final @NonNull JLabel osPortableLabel = new JLabel("Portable");
+    private final @NonNull JLabel osDeviceNameLabel = new JLabel("Device Name");
+    private final @NonNull JLabel osUserCountLabel = new JLabel("User Count");
+    private final @NonNull JLabel osRegisteredUserLabel = new JLabel("Registered User");
+    private final @NonNull JLabel osSystemDriveLabel = new JLabel("System Drive");
+    private final @NonNull JLabel osWindowsDirectoryLabel = new JLabel("Windows Directory");
+    private final @NonNull JLabel osSystemDirectoryLabel = new JLabel("System Directory");
 
-    public WMIOperatingSystemPanel initUI() {
+    private final @NonNull JComboBox<String> osCurrentOsComboBox = new JComboBox<>();
+    private final @NonNull JTextArea osConciseInfoTextArea = new JTextArea();
+    private final @NonNull JTextField osCaptionTextField = new JTextField();
+    private final @NonNull JTextField osVersionTextField = new JTextField();
+    private final @NonNull JTextField osBuildNumberTextField = new JTextField();
+    private final @NonNull JTextField osManufacturerTextField = new JTextField();
+    private final @NonNull JTextField osArchitectureTextField = new JTextField();
+    private final @NonNull JTextField osInstallDateTextField = new JTextField();
+    private final @NonNull JTextField osLastBootupTimeTextField = new JTextField();
+    private final @NonNull JTextField osSerialNumberTextField = new JTextField();
+    private final @NonNull JTextField osLanguagesTextField = new JTextField();
+    private final @NonNull JTextField osPrimaryTextField = new JTextField();
+    private final @NonNull JTextField osDistributedTextField = new JTextField();
+    private final @NonNull JTextField osPortableTextField = new JTextField();
+    private final @NonNull JTextField osDeviceNameTextField = new JTextField();
+    private final @NonNull JTextField osUserCountTextField = new JTextField();
+    private final @NonNull JTextField osRegisteredUserTextField = new JTextField();
+    private final @NonNull JTextField osSystemDriveTextField = new JTextField();
+    private final @NonNull JTextField osWindowsDirectoryTextField = new JTextField();
+    private final @NonNull JTextField osSystemDirectoryTextField = new JTextField();
+
+    // User Account Components
+    private final @NonNull JLabel userSIDLabel = new JLabel("SID");
+    private final @NonNull JLabel userNameLabel = new JLabel("Name");
+    private final @NonNull JLabel userCaptionLabel = new JLabel("Caption");
+    private final @NonNull JLabel userDomainLabel = new JLabel("Domain");
+    private final @NonNull JLabel userDescriptionLabel = new JLabel("Description");
+    private final @NonNull JLabel userPasswordRequiredLabel = new JLabel("Password Required");
+    private final @NonNull JLabel userPasswordChangeableLabel = new JLabel("Password Changeable");
+    private final @NonNull JLabel userPasswordExpiresLabel = new JLabel("Password Expires");
+    private final @NonNull JLabel userLocalAccountLabel = new JLabel("Local Account");
+    private final @NonNull JLabel userDisabledLabel = new JLabel("Disabled");
+    private final @NonNull JLabel userLockedOutLabel = new JLabel("Locked Out");
+    private final @NonNull JLabel userAccountTypeLabel = new JLabel("Account Type");
+    private final @NonNull JLabel userSIDTypeLabel = new JLabel("SID Type");
+    private final @NonNull JLabel userStatusLabel = new JLabel("Status");
+
+    private final @NonNull JComboBox<String> userAccountSIDComboBox = new JComboBox<>();
+    private final @NonNull JTextField userNameTextField = new JTextField();
+    private final @NonNull JTextField userCaptionTextField = new JTextField();
+    private final @NonNull JTextField userDomainTextField = new JTextField();
+    private final @NonNull JTextField userDescriptionTextField = new JTextField();
+    private final @NonNull JTextField userPasswordRequiredTextField = new JTextField();
+    private final @NonNull JTextField userPasswordChangeableTextField = new JTextField();
+    private final @NonNull JTextField userPasswordExpiresTextField = new JTextField();
+    private final @NonNull JTextField userLocalAccountTextField = new JTextField();
+    private final @NonNull JTextField userDisabledTextField = new JTextField();
+    private final @NonNull JTextField userLockedOutTextField = new JTextField();
+    private final @NonNull JTextField userAccountTypeTextField = new JTextField();
+    private final @NonNull JTextField userSIDTypeTextField = new JTextField();
+    private final @NonNull JTextField userStatusTextField = new JTextField();
+
+
+    public @NonNull WMIOperatingSystemPanel initUI() {
         setLayout(new GridLayout(2, 1, 0, 0));
         return this;
     }
 
-    public WMIOperatingSystemPanel initComponents() {
+    public @NonNull WMIOperatingSystemPanel initComponents() {
         add(new JScrollPane(createOsPanel()));
         add(new JScrollPane(createUserPanel()));
         return this;
     }
 
-    private JPanel createOsPanel() {
+    private @NonNull JPanel createOsPanel() {
 
         final JPanel operatingSystemPanel = new JPanel();
         operatingSystemPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Operating System", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -193,7 +198,7 @@ public class WMIOperatingSystemPanel extends JPanel {
         return operatingSystemPanel;
     }
 
-    private JPanel createUserPanel() {
+    private @NonNull JPanel createUserPanel() {
 
         final JPanel userPanel = new JPanel();
         userPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "User", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -258,7 +263,7 @@ public class WMIOperatingSystemPanel extends JPanel {
         return userPanel;
     }
 
-    public WMIOperatingSystemPanel initWorkers() {
+    public @NonNull WMIOperatingSystemPanel initWorkers() {
 
         List<JTextField> osFields = List.of(osCaptionTextField, osVersionTextField, osBuildNumberTextField,
                 osManufacturerTextField, osArchitectureTextField, osInstallDateTextField, osLastBootupTimeTextField,

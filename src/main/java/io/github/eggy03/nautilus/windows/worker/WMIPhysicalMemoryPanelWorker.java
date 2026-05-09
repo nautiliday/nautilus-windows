@@ -10,6 +10,7 @@ import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
 import io.github.eggy03.nautilus.windows.worker.typeresolver.WMISizeResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -26,11 +27,11 @@ import static io.github.eggy03.nautilus.windows.worker.typeresolver.WMIValueReso
 @Slf4j
 public class WMIPhysicalMemoryPanelWorker extends SwingWorker<Map<String, Win32PhysicalMemory>, Void> {
 
-    private final JComboBox<String> memoryTagComboBox;
-    private final List<JTextField> memoryFields;
+    private final @NonNull JComboBox<String> memoryTagComboBox;
+    private final @NonNull List<JTextField> memoryFields;
 
     @Override
-    protected Map<String, Win32PhysicalMemory> doInBackground() {
+    protected @NonNull Map<String, Win32PhysicalMemory> doInBackground() {
 
         List<Win32PhysicalMemory> memoryList = new Win32PhysicalMemoryService().get(TerminalConstant.TIMEOUT_SIXTY_SECONDS);
         log.info("Found {} Win32_PhysicalMemory entry(s)", memoryList.size());
@@ -64,7 +65,7 @@ public class WMIPhysicalMemoryPanelWorker extends SwingWorker<Map<String, Win32P
     }
 
 
-    private void populateMemoryFields(Map<String, Win32PhysicalMemory> memoryMap) {
+    private void populateMemoryFields(@NonNull Map<String, Win32PhysicalMemory> memoryMap) {
 
         // get the current selected tag in the combo box
         String memoryTag = String.valueOf(memoryTagComboBox.getSelectedItem());

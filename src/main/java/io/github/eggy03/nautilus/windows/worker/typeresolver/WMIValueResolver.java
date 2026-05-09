@@ -5,8 +5,8 @@
 package io.github.eggy03.nautilus.windows.worker.typeresolver;
 
 import lombok.experimental.UtilityClass;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Utility class responsible for resolving numeric Windows Management
@@ -47,11 +47,11 @@ import org.jetbrains.annotations.Nullable;
 @UtilityClass
 public class WMIValueResolver {
 
-    private static final String NOT_AVAILABLE = "N/A";
-    private static final String NOT_RESOLVED = "Value Not Resolved For: ";
+    private static final @NonNull String NOT_AVAILABLE = "N/A";
+    private static final @NonNull String NOT_RESOLVED = "Value Not Resolved For: ";
 
     //Win32_Processor
-    @NotNull
+    @NonNull
     public static String resolveProcessorArchitecture(@Nullable Integer architecture) {
         return switch (architecture) {
             case 0 -> "x86";
@@ -68,7 +68,7 @@ public class WMIValueResolver {
     }
 
     // Win32_CacheMemory
-    @NotNull
+    @NonNull
     public static String resolveWMICacheMemoryType(@Nullable Integer cacheType) {
 
         return switch (cacheType) {
@@ -82,7 +82,7 @@ public class WMIValueResolver {
         };
     }
 
-    @NotNull
+    @NonNull
     public static String resolveWMICacheMemoryLevel(@Nullable Integer cacheLevel) {
 
         return switch (cacheLevel) {
@@ -97,7 +97,7 @@ public class WMIValueResolver {
         };
     }
 
-    @NotNull
+    @NonNull
     public static String resolveWMICacheMemoryAssociativity(@Nullable Integer associativity) {
 
         return switch (associativity) {
@@ -114,7 +114,7 @@ public class WMIValueResolver {
         };
     }
 
-    @NotNull
+    @NonNull
     public static String resolveWMICacheMemoryLocation(@Nullable Integer location) {
 
         return switch (location) {
@@ -127,7 +127,7 @@ public class WMIValueResolver {
         };
     }
 
-    @NotNull
+    @NonNull
     public static String resolveWMICacheErrorCorrectType(@Nullable Integer errorCorrectType) {
 
         return switch (errorCorrectType) {
@@ -144,7 +144,7 @@ public class WMIValueResolver {
     }
 
     // Win32_PhysicalMemory
-    @NotNull
+    @NonNull
     public static String resolveWMIPhysicalMemoryFormFactor(@Nullable Integer formFactor) {
 
         return switch (formFactor) {
@@ -178,7 +178,7 @@ public class WMIValueResolver {
     }
 
     // Win32_PortConnector
-    @NotNull
+    @NonNull
     public static String resolveWMIPortType(@Nullable Integer portType) {
 
         return switch (portType) {
@@ -222,7 +222,7 @@ public class WMIValueResolver {
     }
 
     // MSFT_NetCommon
-    @NotNull
+    @NonNull
     public static String resolveMsftIPvAddressFamily(@Nullable Number addressFamily) {
 
         if (addressFamily == null) {
@@ -238,7 +238,7 @@ public class WMIValueResolver {
     }
 
     // MSFT_NetAdapter
-    @NotNull
+    @NonNull
     public static String resolveMsftNetAdapterMediaConnectState(@Nullable Long mediaConnectState) {
 
         if (mediaConnectState == null) {
@@ -254,7 +254,7 @@ public class WMIValueResolver {
     }
 
     // MSFT_NetIpAddress
-    @NotNull
+    @NonNull
     public static String resolveMsftNetIpAddressType(@Nullable Integer type) {
 
         return switch (type) {
@@ -265,7 +265,7 @@ public class WMIValueResolver {
         };
     }
 
-    @NotNull
+    @NonNull
     public static String resolveMsftNetIpAddressPrefixOrigin(@Nullable Long prefixOrigin) {
 
         if (prefixOrigin == null) {
@@ -282,7 +282,7 @@ public class WMIValueResolver {
         };
     }
 
-    @NotNull
+    @NonNull
     public static String resolveMsftNetIpAddressSuffixOrigin(@Nullable Long suffixOrigin) {
 
         if (suffixOrigin == null) {
@@ -301,7 +301,7 @@ public class WMIValueResolver {
     }
 
     // MSFT_NetConnectionProfile
-    @NotNull
+    @NonNull
     public static String resolveMsftNetConnectionProfileNetworkCategory(@Nullable Long networkCategory) {
 
         if (networkCategory == null) {
@@ -316,7 +316,7 @@ public class WMIValueResolver {
         };
     }
 
-    @NotNull
+    @NonNull
     public static String resolveMsftNetConnectionProfileDomainAuthenticationKind(
             @Nullable Long domainAuthenticationKind) {
 
@@ -332,7 +332,7 @@ public class WMIValueResolver {
         };
     }
 
-    @NotNull
+    @NonNull
     public static String resolveMsftNetConnectionProfileConnectivity(@Nullable Long connectivity) {
 
         if (connectivity == null) {
@@ -350,7 +350,7 @@ public class WMIValueResolver {
     }
 
     // Win32_LogicalDisk
-    @NotNull
+    @NonNull
     public static String resolveWMILogicalDiskDriveType(@Nullable Long driveType) {
 
         if (driveType == null) {
@@ -369,7 +369,7 @@ public class WMIValueResolver {
         };
     }
 
-    @NotNull
+    @NonNull
     public static String resolveWMILogicalDiskMediaType(@Nullable Long mediaType) {
 
         if (mediaType == null) {
@@ -405,7 +405,7 @@ public class WMIValueResolver {
     }
 
     // Win32_UserAccount
-    @NotNull
+    @NonNull
     public static String resolveWMIUserAccountSidType(@Nullable Integer sidType) {
 
         return switch (sidType) {
@@ -423,7 +423,7 @@ public class WMIValueResolver {
         };
     }
 
-    @NotNull
+    @NonNull
     public static String resolveWMIUserAccountType(@Nullable Long accountType) {
 
         if (accountType == null) {
@@ -442,7 +442,7 @@ public class WMIValueResolver {
 
 
     // GENERAL
-    @NotNull
+    @NonNull
     public static String resolveWMIAvailability(@Nullable Integer availability) {
 
         return switch (availability) {

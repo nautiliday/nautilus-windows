@@ -13,6 +13,7 @@ import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIProcessorPanel;
 import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIStoragePanel;
 import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIVideoControllerPanel;
 import io.github.eggy03.nautilus.windows.ui.secondary.AboutUI;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -26,7 +27,7 @@ import java.awt.Toolkit;
 
 public class MainUI extends JFrame {
 
-    public MainUI initUI() {
+    public @NonNull MainUI initUI() {
 
         setTitle("Nautilus");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -37,16 +38,16 @@ public class MainUI extends JFrame {
         return this;
     }
 
-    public MainUI initComponents() {
+    public @NonNull MainUI initComponents() {
 
-       add(createMenu(), BorderLayout.NORTH);
-       add(createTabbedPane(), BorderLayout.CENTER);
+        add(createMenu(), BorderLayout.NORTH);
+        add(createTabbedPane(), BorderLayout.CENTER);
 
-       return this;
+        return this;
 
     }
 
-    private JMenuBar createMenu() {
+    private @NonNull JMenuBar createMenu() {
 
         final JMenuBar menuBar = new JMenuBar();
 
@@ -63,7 +64,7 @@ public class MainUI extends JFrame {
 
     }
 
-    private JTabbedPane createTabbedPane() {
+    private @NonNull JTabbedPane createTabbedPane() {
 
         JTabbedPane tabbedPane = new JTabbedPane(SwingConstants.TOP);
 

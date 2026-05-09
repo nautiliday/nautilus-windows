@@ -8,9 +8,9 @@ import io.github.eggy03.cimari.entity.compounded.HardwareId;
 import io.github.eggy03.cimari.entity.compounded.ImmutableHardwareId;
 import io.github.eggy03.cimari.service.compounded.HardwareIdService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JTextField;
 import javax.swing.SwingWorker;
@@ -24,7 +24,7 @@ public class WMIHardwareIdWorker extends SwingWorker<HardwareId, Void> {
     private final JTextField hidField;
 
     @Override
-    protected HardwareId doInBackground() {
+    protected @NonNull HardwareId doInBackground() {
         return new HardwareIdService()
                 .get(TerminalConstant.TIMEOUT_SIXTY_SECONDS)
                 .orElse(new ImmutableHardwareId.Builder().build());

@@ -7,7 +7,9 @@ package io.github.eggy03.nautilus.windows.ui.primary.panels;
 import io.github.eggy03.nautilus.windows.worker.WMIBaseboardWorker;
 import io.github.eggy03.nautilus.windows.worker.WMIBiosWorker;
 import io.github.eggy03.nautilus.windows.worker.WMIPortConnectorWorker;
+
 import net.miginfocom.swing.MigLayout;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -24,80 +26,80 @@ public class WMIMainboardPanel extends JPanel {
     // the main panel consists of 3 sub panels (baseboard, port and bios)
 
     // Baseboard panel components
-    private final JLabel baseboardNumberLabel = new JLabel("Baseboard#");
-    private final JComboBox<Integer> baseboardNumberComboBox = new JComboBox<>();
+    private final @NonNull JLabel baseboardNumberLabel = new JLabel("Baseboard#");
+    private final @NonNull JComboBox<Integer> baseboardNumberComboBox = new JComboBox<>();
 
-    private final JLabel baseboardManufacturerLabel = new JLabel("Manufacturer");
-    private final JTextField baseboardManufacturerTextField = new JTextField();
+    private final @NonNull JLabel baseboardManufacturerLabel = new JLabel("Manufacturer");
+    private final @NonNull JTextField baseboardManufacturerTextField = new JTextField();
 
-    private final JLabel baseboardModelLabel = new JLabel("Model");
-    private final JTextField baseboardModelTextField = new JTextField();
+    private final @NonNull JLabel baseboardModelLabel = new JLabel("Model");
+    private final @NonNull JTextField baseboardModelTextField = new JTextField();
 
-    private final JLabel baseboardProductLabel = new JLabel("Product");
-    private final JTextField baseboardProductTextField = new JTextField();
+    private final @NonNull JLabel baseboardProductLabel = new JLabel("Product");
+    private final @NonNull JTextField baseboardProductTextField = new JTextField();
 
-    private final JLabel baseboardSerialNumberLabel = new JLabel("Serial Number");
-    private final JTextField baseboardSerialNumberTextField = new JTextField();
+    private final @NonNull JLabel baseboardSerialNumberLabel = new JLabel("Serial Number");
+    private final @NonNull JTextField baseboardSerialNumberTextField = new JTextField();
 
-    private final JLabel baseboardVersionLabel = new JLabel("Version");
-    private final JTextField baseboardVersionTextField = new JTextField();
+    private final @NonNull JLabel baseboardVersionLabel = new JLabel("Version");
+    private final @NonNull JTextField baseboardVersionTextField = new JTextField();
 
     // Port components
-    private final JLabel baseboardPortTagLabel = new JLabel("Tag");
-    private final JComboBox<String> baseboardPortTagComboBox = new JComboBox<>();
+    private final @NonNull JLabel baseboardPortTagLabel = new JLabel("Tag");
+    private final @NonNull JComboBox<String> baseboardPortTagComboBox = new JComboBox<>();
 
-    private final JLabel baseboardPortTypeLabel = new JLabel("Type");
-    private final JTextField baseboardPortTypeTextField = new JTextField();
+    private final @NonNull JLabel baseboardPortTypeLabel = new JLabel("Type");
+    private final @NonNull JTextField baseboardPortTypeTextField = new JTextField();
 
-    private final JLabel baseboardPortIRDLabel = new JLabel("Internal RD");
-    private final JTextField baseboardPortIRDTextField = new JTextField();
+    private final @NonNull JLabel baseboardPortIRDLabel = new JLabel("Internal RD");
+    private final @NonNull JTextField baseboardPortIRDTextField = new JTextField();
 
-    private final JLabel baseboardPortERDLabel = new JLabel("External RD");
-    private final JTextField baseboardPortERDTextField = new JTextField();
+    private final @NonNull JLabel baseboardPortERDLabel = new JLabel("External RD");
+    private final @NonNull JTextField baseboardPortERDTextField = new JTextField();
 
     // BIOS components
-    private final JLabel biosNumberLabel = new JLabel("BIOS#");
-    private final JComboBox<Integer> biosNumberComboBox = new JComboBox<>();
+    private final @NonNull JLabel biosNumberLabel = new JLabel("BIOS#");
+    private final @NonNull JComboBox<Integer> biosNumberComboBox = new JComboBox<>();
 
-    private final JLabel biosCaptionLabel = new JLabel("Caption");
-    private final JTextField biosCaptionTextField = new JTextField();
+    private final @NonNull JLabel biosCaptionLabel = new JLabel("Caption");
+    private final @NonNull JTextField biosCaptionTextField = new JTextField();
 
-    private final JLabel biosCurrentLanguageLevel = new JLabel("Current Language");
-    private final JTextField biosCurrentLanguageTextField = new JTextField();
+    private final @NonNull JLabel biosCurrentLanguageLevel = new JLabel("Current Language");
+    private final @NonNull JTextField biosCurrentLanguageTextField = new JTextField();
 
-    private final JLabel biosManufacturerLabel = new JLabel("Manufacturer");
-    private final JTextField biosManufacturerTextField = new JTextField();
+    private final @NonNull JLabel biosManufacturerLabel = new JLabel("Manufacturer");
+    private final @NonNull JTextField biosManufacturerTextField = new JTextField();
 
-    private final JLabel biosNameLabel = new JLabel("Name");
-    private final JTextField biosNameTextField = new JTextField();
+    private final @NonNull JLabel biosNameLabel = new JLabel("Name");
+    private final @NonNull JTextField biosNameTextField = new JTextField();
 
-    private final JLabel biosPrimaryLabel = new JLabel("Primary BIOS");
-    private final JTextField biosPrimaryTextField = new JTextField();
+    private final @NonNull JLabel biosPrimaryLabel = new JLabel("Primary BIOS");
+    private final @NonNull JTextField biosPrimaryTextField = new JTextField();
 
-    private final JLabel biosReleaseDateLabel = new JLabel("Release Date");
-    private final JTextField biosReleaseDateTextField = new JTextField();
+    private final @NonNull JLabel biosReleaseDateLabel = new JLabel("Release Date");
+    private final @NonNull JTextField biosReleaseDateTextField = new JTextField();
 
-    private final JLabel biosSmbiosPresenceLabel = new JLabel("SMBIOS Present");
-    private final JTextField biosSmbiosPresenceTextField = new JTextField();
+    private final @NonNull JLabel biosSmbiosPresenceLabel = new JLabel("SMBIOS Present");
+    private final @NonNull JTextField biosSmbiosPresenceTextField = new JTextField();
 
-    private final JLabel biosSmbiosVersionLabel = new JLabel("SMBIOS Version");
-    private final JTextField biosSmbiosVersionTextField = new JTextField();
+    private final @NonNull JLabel biosSmbiosVersionLabel = new JLabel("SMBIOS Version");
+    private final @NonNull JTextField biosSmbiosVersionTextField = new JTextField();
 
-    private final JLabel biosStatusLabel = new JLabel("Status");
-    private final JTextField biosStatusTextField = new JTextField();
+    private final @NonNull JLabel biosStatusLabel = new JLabel("Status");
+    private final @NonNull JTextField biosStatusTextField = new JTextField();
 
-    private final JLabel biosVersionLabel = new JLabel("Version");
-    private final JTextField biosVersionTextField = new JTextField();
+    private final @NonNull JLabel biosVersionLabel = new JLabel("Version");
+    private final @NonNull JTextField biosVersionTextField = new JTextField();
 
     // set the layout for the main panel
-    public WMIMainboardPanel initUI() {
+    public @NonNull WMIMainboardPanel initUI() {
         setLayout(new MigLayout("insets 0", "[grow][grow]", "[grow][grow]"));
         return this;
     }
 
     // add the sub panels to the main panels
     // each sub panel is initialized in its dedicated function and is wrapped in a scroll pane
-    public WMIMainboardPanel initComponents() {
+    public @NonNull WMIMainboardPanel initComponents() {
         add(new JScrollPane(createBaseboardPanel()), "cell 0 0,grow");
         add(new JScrollPane(createBaseboardPortPanel()), "cell 1 0,grow");
         add(new JScrollPane(createBiosPanel()), "cell 0 1 2 1,grow");
@@ -105,7 +107,7 @@ public class WMIMainboardPanel extends JPanel {
         return this;
     }
 
-    private JPanel createBaseboardPanel() {
+    private @NonNull JPanel createBaseboardPanel() {
 
         final JPanel baseboardPanel = new JPanel();
         baseboardPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Baseboard", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -138,7 +140,7 @@ public class WMIMainboardPanel extends JPanel {
         return baseboardPanel;
     }
 
-    private JPanel createBaseboardPortPanel() {
+    private @NonNull JPanel createBaseboardPortPanel() {
 
         final JPanel baseboardPortPanel = new JPanel();
         baseboardPortPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Baseboard Port", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -163,7 +165,7 @@ public class WMIMainboardPanel extends JPanel {
         return baseboardPortPanel;
     }
 
-    private JPanel createBiosPanel() {
+    private @NonNull JPanel createBiosPanel() {
 
         final JPanel biosPanel = new JPanel();
         biosPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "BIOS", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -217,7 +219,7 @@ public class WMIMainboardPanel extends JPanel {
     }
 
 
-    public WMIMainboardPanel initWorkers() {
+    public @NonNull WMIMainboardPanel initWorkers() {
 
         //todo consider record/DTO based ordering
         // baseboard worker

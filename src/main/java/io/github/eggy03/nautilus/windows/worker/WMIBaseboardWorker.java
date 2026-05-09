@@ -7,9 +7,9 @@ package io.github.eggy03.nautilus.windows.worker;
 import io.github.eggy03.cimari.entity.mainboard.Win32Baseboard;
 import io.github.eggy03.cimari.service.mainboard.Win32BaseboardService;
 import io.github.eggy03.nautilus.windows.constant.TerminalConstant;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -31,7 +31,7 @@ public class WMIBaseboardWorker extends SwingWorker<Map<Integer, Win32Baseboard>
     private final List<JTextField> baseboardFields;
 
     @Override
-    protected Map<Integer, Win32Baseboard> doInBackground() {
+    protected @NonNull Map<Integer, Win32Baseboard> doInBackground() {
         // cimari returns a list of Win32Baseboard objects, so we need to index them
         List<Win32Baseboard> baseboardList = new Win32BaseboardService()
                 .get(TerminalConstant.TIMEOUT_SIXTY_SECONDS)
@@ -66,7 +66,7 @@ public class WMIBaseboardWorker extends SwingWorker<Map<Integer, Win32Baseboard>
         }
     }
 
-    private void populateFields(Map<Integer, Win32Baseboard> baseboardMap) {
+    private void populateFields(@NonNull Map<Integer, Win32Baseboard> baseboardMap) {
 
         Integer selectedBaseboardChoice = (Integer) baseboardNumberComboBox.getSelectedItem();
         Win32Baseboard baseboard = baseboardMap.get(selectedBaseboardChoice);

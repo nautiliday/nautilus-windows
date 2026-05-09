@@ -6,6 +6,7 @@ package io.github.eggy03.nautilus.windows.utility;
 
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.SystemUtils;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Utility class for detecting the current operating system.
@@ -54,6 +55,7 @@ public class OSDetection {
      *
      * @return the current operating system name
      */
+    @Nullable
     public static String getCurrentOS() {
         return System.getProperty("os.name");
     }

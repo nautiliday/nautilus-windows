@@ -51,18 +51,40 @@
     </properties>
 
     <dependencies>
+        <!-- :) -->
         <dependency>
             <groupId>io.github.eggy03</groupId>
             <artifactId>cimari</artifactId>
             <version>${cimari.version}</version>
         </dependency>
 
+        <!-- UI -->
         <dependency>
-            <groupId>io.github.eggy03</groupId>
-            <artifactId>dmidecode4j</artifactId>
-            <version>${dmidecode4j.version}</version>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>${flatlaf.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf-extras</artifactId>
+            <version>${flatlaf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.miglayout</groupId>
+            <artifactId>miglayout-swing</artifactId>
+            <version>${miglayout.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.weisj</groupId>
+            <artifactId>jsvg</artifactId>
+            <version>${jsvg.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -81,32 +103,7 @@
             <version>${tinylog.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.formdev</groupId>
-            <artifactId>flatlaf</artifactId>
-            <version>${flatlaf.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.formdev</groupId>
-            <artifactId>flatlaf-extras</artifactId>
-            <version>${flatlaf.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.weisj</groupId>
-            <artifactId>jsvg</artifactId>
-            <version>${jsvg.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
+        <!-- Utility -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -118,17 +115,13 @@
             <artifactId>commons-io</artifactId>
             <version>${commons.io.version}</version>
         </dependency>
-        
+
+        <!-- Annotation -->
         <dependency>
-    		<groupId>com.miglayout</groupId>
-    		<artifactId>miglayout-swing</artifactId>
-    		<version>${miglayout.version}</version>
-		</dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>26.0.2</version>
-            <scope>compile</scope>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

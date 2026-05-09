@@ -6,7 +6,9 @@ package io.github.eggy03.nautilus.windows.ui.primary.panels;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import io.github.eggy03.nautilus.windows.worker.WMIStorageWorker;
+
 import net.miginfocom.swing.MigLayout;
+import org.jspecify.annotations.NonNull;
 
 import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
@@ -23,49 +25,49 @@ import java.util.List;
 
 public class WMIStoragePanel extends JPanel {
 
-    private final JLabel diskDeviceIdLabel = new JLabel("Disk#");
-    private final JComboBox<String> diskDeviceIdComboBox = new JComboBox<>();
+    private final @NonNull JLabel diskDeviceIdLabel = new JLabel("Disk#");
+    private final @NonNull JComboBox<String> diskDeviceIdComboBox = new JComboBox<>();
 
-    private final JLabel diskPnpDeviceIdLabel = new JLabel("PnP DeviceID");
-    private final JTextField diskPnpDeviceIdTextField = new JTextField();
+    private final @NonNull JLabel diskPnpDeviceIdLabel = new JLabel("PnP DeviceID");
+    private final @NonNull JTextField diskPnpDeviceIdTextField = new JTextField();
 
-    private final JLabel diskCaptionLabel = new JLabel("Name");
-    private final JTextField diskCaptionTextField = new JTextField();
+    private final @NonNull JLabel diskCaptionLabel = new JLabel("Name");
+    private final @NonNull JTextField diskCaptionTextField = new JTextField();
 
-    private final JLabel diskModelLabel = new JLabel("Model");
-    private final JTextField diskModelTextField = new JTextField();
+    private final @NonNull JLabel diskModelLabel = new JLabel("Model");
+    private final @NonNull JTextField diskModelTextField = new JTextField();
 
-    private final JLabel diskFirmwareRevisionLabel = new JLabel("Firmware");
-    private final JTextField diskFirmwareRevisionTextField = new JTextField();
+    private final @NonNull JLabel diskFirmwareRevisionLabel = new JLabel("Firmware");
+    private final @NonNull JTextField diskFirmwareRevisionTextField = new JTextField();
 
-    private final JLabel diskInterfaceTypeLabel = new JLabel("Interface");
-    private final JTextField diskInterfaceTypeTextField = new JTextField();
+    private final @NonNull JLabel diskInterfaceTypeLabel = new JLabel("Interface");
+    private final @NonNull JTextField diskInterfaceTypeTextField = new JTextField();
 
-    private final JLabel diskSerialNumberLabel = new JLabel("Serial Number");
-    private final JTextField diskSerialNumberTextField = new JTextField();
+    private final @NonNull JLabel diskSerialNumberLabel = new JLabel("Serial Number");
+    private final @NonNull JTextField diskSerialNumberTextField = new JTextField();
 
-    private final JLabel diskSizeLabel = new JLabel("Size");
-    private final JTextField diskSizeTextField = new JTextField();
+    private final @NonNull JLabel diskSizeLabel = new JLabel("Size");
+    private final @NonNull JTextField diskSizeTextField = new JTextField();
 
-    private final JLabel diskPartitionsLabel = new JLabel("Partitions");
-    private final JTextField diskPartitionsTextField = new JTextField();
+    private final @NonNull JLabel diskPartitionsLabel = new JLabel("Partitions");
+    private final @NonNull JTextField diskPartitionsTextField = new JTextField();
 
-    private final JLabel diskCapabilitiesLabel = new JLabel("Capabilities");
-    private final JTextField diskCapabilitiesTextField = new JTextField();
+    private final @NonNull JLabel diskCapabilitiesLabel = new JLabel("Capabilities");
+    private final @NonNull JTextField diskCapabilitiesTextField = new JTextField();
 
-    private final JLabel diskStatusLabel = new JLabel("Status");
-    private final JTextField diskStatusTextField = new JTextField();
+    private final @NonNull JLabel diskStatusLabel = new JLabel("Status");
+    private final @NonNull JTextField diskStatusTextField = new JTextField();
 
-    private final JEditorPane diskPartitionEditorPane = new JEditorPane();
-    private final JEditorPane diskVolumeEditorPane = new JEditorPane();
+    private final @NonNull JEditorPane diskPartitionEditorPane = new JEditorPane();
+    private final @NonNull JEditorPane diskVolumeEditorPane = new JEditorPane();
 
-    public WMIStoragePanel initUI() {
+    public @NonNull WMIStoragePanel initUI() {
         setLayout(new GridLayout(2, 1, 0, 0));
 
         return this;
     }
 
-    public WMIStoragePanel initComponents() {
+    public @NonNull WMIStoragePanel initComponents() {
 
         add(new JScrollPane(createDiskDrivePanel()));
         add(createDiskPartitionAndVolumeTabbedPane());
@@ -73,7 +75,7 @@ public class WMIStoragePanel extends JPanel {
         return this;
     }
 
-    private JPanel createDiskDrivePanel() {
+    private @NonNull JPanel createDiskDrivePanel() {
 
         final JPanel diskDrivePanel = new JPanel();
         diskDrivePanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Disk Drive", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -126,7 +128,7 @@ public class WMIStoragePanel extends JPanel {
         return diskDrivePanel;
     }
 
-    private JTabbedPane createDiskPartitionAndVolumeTabbedPane() {
+    private @NonNull JTabbedPane createDiskPartitionAndVolumeTabbedPane() {
 
         final JTabbedPane tabbedPane = new JTabbedPane(SwingConstants.TOP);
 
@@ -154,7 +156,7 @@ public class WMIStoragePanel extends JPanel {
         return tabbedPane;
     }
 
-    public WMIStoragePanel initWorkers() {
+    public @NonNull WMIStoragePanel initWorkers() {
 
         List<JTextField> storageFields = List.of(diskPnpDeviceIdTextField, diskCaptionTextField, diskModelTextField,
                 diskFirmwareRevisionTextField, diskInterfaceTypeTextField, diskSerialNumberTextField, diskSizeTextField,

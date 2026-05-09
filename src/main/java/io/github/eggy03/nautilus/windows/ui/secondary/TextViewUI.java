@@ -6,8 +6,8 @@ package io.github.eggy03.nautilus.windows.ui.secondary;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
@@ -28,7 +28,7 @@ public class TextViewUI extends JFrame {
         buildUI(windowTitle, contents);
     }
 
-    public TextViewUI(@Nullable String windowTitle, @NotNull InputStream contents) {
+    public TextViewUI(@Nullable String windowTitle, @NonNull InputStream contents) {
         try {
             String content = IOUtils.toString(contents, StandardCharsets.UTF_8);
             buildUI(windowTitle, content);

@@ -6,6 +6,8 @@ package io.github.eggy03.nautilus.windows.worker.typeresolver;
 
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Utility class for resolving and formatting WMI date values into
@@ -28,7 +30,8 @@ public class WMIDateResolver {
      * @throws NumberFormatException if the extracted epoch value
      *                               cannot be parsed as a valid long
      */
-    public static String toLocalDateTime(String epochDate) {
+    @NonNull
+    public static String toLocalDateTime(@Nullable String epochDate) {
 
         if (epochDate == null || epochDate.isBlank())
             return "N/A";
