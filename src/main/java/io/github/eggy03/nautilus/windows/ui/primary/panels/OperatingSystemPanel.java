@@ -21,7 +21,7 @@ import java.awt.GridLayout;
 import java.util.List;
 
 @SuppressWarnings("java:S1192")
-public class WMIOperatingSystemPanel extends JPanel {
+public class OperatingSystemPanel extends JPanel {
 
     // Init Components in the main panel
     // the main panel consists of 2 sub panels
@@ -100,12 +100,12 @@ public class WMIOperatingSystemPanel extends JPanel {
     private final @NonNull JTextField userStatusTextField = new JTextField();
 
 
-    public @NonNull WMIOperatingSystemPanel initUI() {
+    public @NonNull OperatingSystemPanel initUI() {
         setLayout(new GridLayout(2, 1, 0, 0));
         return this;
     }
 
-    public @NonNull WMIOperatingSystemPanel initComponents() {
+    public @NonNull OperatingSystemPanel initComponents() {
         add(new JScrollPane(createOsPanel()));
         add(new JScrollPane(createUserPanel()));
         return this;
@@ -264,7 +264,7 @@ public class WMIOperatingSystemPanel extends JPanel {
         return userPanel;
     }
 
-    public @NonNull WMIOperatingSystemPanel initWorkers() {
+    public @NonNull OperatingSystemPanel initWorkers() {
 
         List<JTextField> osFields = List.of(osCaptionTextField, osVersionTextField, osBuildNumberTextField,
                 osManufacturerTextField, osArchitectureTextField, osInstallDateTextField, osLastBootupTimeTextField,

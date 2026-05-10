@@ -18,7 +18,7 @@ import javax.swing.border.TitledBorder;
 import java.util.List;
 
 @SuppressWarnings("java:S1192")
-public class WMIVideoControllerPanel extends JPanel {
+public class VideoControllerPanel extends JPanel {
 
     // identifier panel
     private final @NonNull JLabel gpuDeviceIdLabel = new JLabel("Device ID");
@@ -65,12 +65,12 @@ public class WMIVideoControllerPanel extends JPanel {
     private final @NonNull JLabel gpuVideoProcessorLabel = new JLabel("Video Processor");
     private final @NonNull JTextField gpuVideoProcessorTextField = new JTextField();
 
-    public @NonNull WMIVideoControllerPanel initUI() {
+    public @NonNull VideoControllerPanel initUI() {
         setLayout(new MigLayout("insets 0", "[grow][grow]", "[grow][grow]"));
         return this;
     }
 
-    public @NonNull WMIVideoControllerPanel initComponents() {
+    public @NonNull VideoControllerPanel initComponents() {
         add(new JScrollPane(createIdentifierPanel()), "cell 0 0 2 1, grow");
         add(new JScrollPane(createDisplayPanel()), "cell 0 1, grow");
         add(new JScrollPane(createDriverPanel()), "cell 1 1, grow");
@@ -163,7 +163,7 @@ public class WMIVideoControllerPanel extends JPanel {
         return driverPanel;
     }
 
-    public @NonNull WMIVideoControllerPanel initWorkers() {
+    public @NonNull VideoControllerPanel initWorkers() {
 
         List<JTextField> gpuFields = List.of(
                 gpuNameTextField, gpuPnPDeviceIdTextField, gpuHorizontalResTextField, gpuVerticalResTextField,

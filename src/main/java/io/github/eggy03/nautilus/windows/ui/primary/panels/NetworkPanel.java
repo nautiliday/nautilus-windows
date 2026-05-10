@@ -23,7 +23,7 @@ import java.awt.GridLayout;
 import java.util.List;
 
 @SuppressWarnings("java:S1192")
-public class WMINetworkPanel extends JPanel {
+public class NetworkPanel extends JPanel {
 
     // Init Components in the main panel
     // the main panel consists of 1 sub panel and 1 tabbed pane which has 3 editor panes
@@ -82,12 +82,12 @@ public class WMINetworkPanel extends JPanel {
     private final @NonNull JEditorPane adapterDnsEditorPane = new JEditorPane();
     private final @NonNull JEditorPane adapterConnectionProfileEditorPane = new JEditorPane();
 
-    public @NonNull WMINetworkPanel initUI() {
+    public @NonNull NetworkPanel initUI() {
         setLayout(new GridLayout(2, 1, 0, 0));
         return this;
     }
 
-    public @NonNull WMINetworkPanel initComponents() {
+    public @NonNull NetworkPanel initComponents() {
         add(new JScrollPane(createAdapterPanel()));
         add(createAdapterPropertyTabbedPane());
 
@@ -186,19 +186,19 @@ public class WMINetworkPanel extends JPanel {
         // add panels to the tabbed pane
         adapterPropertyTabbedPane.addTab(
                 "Adapter IP",
-                new FlatSVGIcon(WMINetworkPanel.class.getResource("/icons/tab_icons_material_green/IP.svg")),
+                new FlatSVGIcon(NetworkPanel.class.getResource("/icons/tab_icons_material_green/IP.svg")),
                 new JScrollPane(adapterIpEditorPane),
                 null
         );
         adapterPropertyTabbedPane.addTab(
                 "Adapter DNS",
-                new FlatSVGIcon(WMINetworkPanel.class.getResource("/icons/tab_icons_material_green/DNS.svg")),
+                new FlatSVGIcon(NetworkPanel.class.getResource("/icons/tab_icons_material_green/DNS.svg")),
                 new JScrollPane(adapterDnsEditorPane),
                 null
         );
         adapterPropertyTabbedPane.addTab(
                 "Connection Profile",
-                new FlatSVGIcon(WMINetworkPanel.class.getResource("/icons/tab_icons_material_green/ConnectionProfile.svg")),
+                new FlatSVGIcon(NetworkPanel.class.getResource("/icons/tab_icons_material_green/ConnectionProfile.svg")),
                 new JScrollPane(adapterConnectionProfileEditorPane),
                 null
         );
@@ -206,7 +206,7 @@ public class WMINetworkPanel extends JPanel {
         return adapterPropertyTabbedPane;
     }
 
-    public @NonNull WMINetworkPanel initWorkers() {
+    public @NonNull NetworkPanel initWorkers() {
 
         List<JTextField> adapterFields = List.of(networkDeviceIdTextField, networkNameTextField,
                 networkDriverVersionTextField, networkDriverDateTextField, networkTypeTextField,

@@ -25,7 +25,7 @@ import java.awt.datatransfer.StringSelection;
 import java.util.List;
 
 @SuppressWarnings("java:S1192")
-public class WMIProcessorPanel extends JPanel {
+public class ProcessorPanel extends JPanel {
 
     // the main panel has five sub panels
 
@@ -91,14 +91,14 @@ public class WMIProcessorPanel extends JPanel {
     private final @NonNull JTextArea cacheTextArea = new JTextArea();
 
 
-    public @NonNull WMIProcessorPanel initUI() {
+    public @NonNull ProcessorPanel initUI() {
 
         setLayout(new MigLayout(" insets 0", "[grow][grow]", "[][grow][grow][grow]"));
 
         return this;
     }
 
-    public @NonNull WMIProcessorPanel initComponents() {
+    public @NonNull ProcessorPanel initComponents() {
         add(new JScrollPane(createHardwareIdPanel()), "cell 0 0 2 1, grow");
         add(new JScrollPane(createPrimaryInfoPanel()), "cell 0 1 2 1, grow");
         add(new JScrollPane(createSecondaryInfoPanel()), "cell 0 2 2 1, grow");
@@ -119,7 +119,7 @@ public class WMIProcessorPanel extends JPanel {
 
         hardwareIdTextField.setEditable(false);
 
-        copyHid.setIcon(new FlatSVGIcon(WMIProcessorPanel.class.getResource("/icons/general_icons/copy.svg")));
+        copyHid.setIcon(new FlatSVGIcon(ProcessorPanel.class.getResource("/icons/general_icons/copy.svg")));
         copyHid.addActionListener(copyAction -> {
             StringSelection textToCopy = new StringSelection(hardwareIdTextField.getText());
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(textToCopy, null);
@@ -243,7 +243,7 @@ public class WMIProcessorPanel extends JPanel {
         return cacheInfoPanel;
     }
 
-    public @NonNull WMIProcessorPanel initWorkers() {
+    public @NonNull ProcessorPanel initWorkers() {
         new WMIHardwareIdWorker(hardwareIdTextField).execute();
 
         List<JTextField> cpuFields = List.of(coreTextField, threadTextField, effectiveClockTextField, cpuNameTextField,

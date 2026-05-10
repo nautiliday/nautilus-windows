@@ -24,7 +24,7 @@ import java.awt.GridLayout;
 import java.util.List;
 
 @SuppressWarnings("java:S1192")
-public class WMIStoragePanel extends JPanel {
+public class StoragePanel extends JPanel {
 
     private final @NonNull JLabel diskDeviceIdLabel = new JLabel("Disk#");
     private final @NonNull JComboBox<String> diskDeviceIdComboBox = new JComboBox<>();
@@ -62,13 +62,13 @@ public class WMIStoragePanel extends JPanel {
     private final @NonNull JEditorPane diskPartitionEditorPane = new JEditorPane();
     private final @NonNull JEditorPane diskVolumeEditorPane = new JEditorPane();
 
-    public @NonNull WMIStoragePanel initUI() {
+    public @NonNull StoragePanel initUI() {
         setLayout(new GridLayout(2, 1, 0, 0));
 
         return this;
     }
 
-    public @NonNull WMIStoragePanel initComponents() {
+    public @NonNull StoragePanel initComponents() {
 
         add(new JScrollPane(createDiskDrivePanel()));
         add(createDiskPartitionAndVolumeTabbedPane());
@@ -142,14 +142,14 @@ public class WMIStoragePanel extends JPanel {
         // add editor panes to the tabbed pane
         tabbedPane.addTab(
                 "Disk Partition",
-                new FlatSVGIcon(WMIStoragePanel.class.getResource("/icons/tab_icons_material_green/DiskPartition.svg")),
+                new FlatSVGIcon(StoragePanel.class.getResource("/icons/tab_icons_material_green/DiskPartition.svg")),
                 new JScrollPane(diskPartitionEditorPane),
                 null
         );
 
         tabbedPane.addTab(
                 "Disk Volume",
-                new FlatSVGIcon(WMIStoragePanel.class.getResource("/icons/tab_icons_material_green/LogicalVolume.svg")),
+                new FlatSVGIcon(StoragePanel.class.getResource("/icons/tab_icons_material_green/LogicalVolume.svg")),
                 new JScrollPane(diskVolumeEditorPane),
                 null
         );
@@ -157,7 +157,7 @@ public class WMIStoragePanel extends JPanel {
         return tabbedPane;
     }
 
-    public @NonNull WMIStoragePanel initWorkers() {
+    public @NonNull StoragePanel initWorkers() {
 
         List<JTextField> storageFields = List.of(diskPnpDeviceIdTextField, diskCaptionTextField, diskModelTextField,
                 diskFirmwareRevisionTextField, diskInterfaceTypeTextField, diskSerialNumberTextField, diskSizeTextField,

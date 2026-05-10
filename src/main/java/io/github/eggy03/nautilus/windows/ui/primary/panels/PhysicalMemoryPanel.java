@@ -17,7 +17,7 @@ import javax.swing.border.TitledBorder;
 import java.util.List;
 
 @SuppressWarnings("java:S1192")
-public class WMIPhysicalMemoryPanel extends JPanel {
+public class PhysicalMemoryPanel extends JPanel {
 
     private final @NonNull JLabel slotLabel = new JLabel("Slot#");
     private final @NonNull JComboBox<String> slotComboBox = new JComboBox<>();
@@ -62,7 +62,7 @@ public class WMIPhysicalMemoryPanel extends JPanel {
     private final @NonNull JTextField deviceLocatorTextField = new JTextField();
 
 
-    public @NonNull WMIPhysicalMemoryPanel initUI() {
+    public @NonNull PhysicalMemoryPanel initUI() {
 
         setLayout(new MigLayout("insets 0", "[][grow]", "[][][][][][][][][][][][][][]"));
         setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Memory", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -71,7 +71,7 @@ public class WMIPhysicalMemoryPanel extends JPanel {
     }
 
 
-    public @NonNull WMIPhysicalMemoryPanel initComponents() {
+    public @NonNull PhysicalMemoryPanel initComponents() {
 
         add(slotLabel, "cell 0 0,alignx leading");
         add(slotComboBox, "cell 1 0,growx");
@@ -132,7 +132,7 @@ public class WMIPhysicalMemoryPanel extends JPanel {
         return this;
     }
 
-    public @NonNull WMIPhysicalMemoryPanel initWorkers() {
+    public @NonNull PhysicalMemoryPanel initWorkers() {
 
         List<JTextField> memoryFields = List.of(nameTextField, manufacturerTextField, modelTextField, oidTextField,
                 partNumberTextField, serialTextField, formFactorTextField, bankLabelTextField, capacityTextField,

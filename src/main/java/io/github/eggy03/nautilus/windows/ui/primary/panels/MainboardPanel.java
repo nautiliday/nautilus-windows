@@ -21,7 +21,7 @@ import javax.swing.border.TitledBorder;
 import java.util.List;
 
 @SuppressWarnings("java:S1192")
-public class WMIMainboardPanel extends JPanel {
+public class MainboardPanel extends JPanel {
 
     // Init Components in the main panel
     // the main panel consists of 3 sub panels (baseboard, port and bios)
@@ -93,14 +93,14 @@ public class WMIMainboardPanel extends JPanel {
     private final @NonNull JTextField biosVersionTextField = new JTextField();
 
     // set the layout for the main panel
-    public @NonNull WMIMainboardPanel initUI() {
+    public @NonNull MainboardPanel initUI() {
         setLayout(new MigLayout("insets 0", "[grow][grow]", "[grow][grow]"));
         return this;
     }
 
     // add the sub panels to the main panels
     // each sub panel is initialized in its dedicated function and is wrapped in a scroll pane
-    public @NonNull WMIMainboardPanel initComponents() {
+    public @NonNull MainboardPanel initComponents() {
         add(new JScrollPane(createBaseboardPanel()), "cell 0 0,grow");
         add(new JScrollPane(createBaseboardPortPanel()), "cell 1 0,grow");
         add(new JScrollPane(createBiosPanel()), "cell 0 1 2 1,grow");
@@ -220,7 +220,7 @@ public class WMIMainboardPanel extends JPanel {
     }
 
 
-    public @NonNull WMIMainboardPanel initWorkers() {
+    public @NonNull MainboardPanel initWorkers() {
 
         //todo consider record/DTO based ordering
         // baseboard worker

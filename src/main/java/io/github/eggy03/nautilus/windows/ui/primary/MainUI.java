@@ -5,13 +5,13 @@
 package io.github.eggy03.nautilus.windows.ui.primary;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
-import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIMainboardPanel;
-import io.github.eggy03.nautilus.windows.ui.primary.panels.WMINetworkPanel;
-import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIOperatingSystemPanel;
-import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIPhysicalMemoryPanel;
-import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIProcessorPanel;
-import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIStoragePanel;
-import io.github.eggy03.nautilus.windows.ui.primary.panels.WMIVideoControllerPanel;
+import io.github.eggy03.nautilus.windows.ui.primary.panels.MainboardPanel;
+import io.github.eggy03.nautilus.windows.ui.primary.panels.NetworkPanel;
+import io.github.eggy03.nautilus.windows.ui.primary.panels.OperatingSystemPanel;
+import io.github.eggy03.nautilus.windows.ui.primary.panels.PhysicalMemoryPanel;
+import io.github.eggy03.nautilus.windows.ui.primary.panels.ProcessorPanel;
+import io.github.eggy03.nautilus.windows.ui.primary.panels.StoragePanel;
+import io.github.eggy03.nautilus.windows.ui.primary.panels.VideoControllerPanel;
 import io.github.eggy03.nautilus.windows.ui.secondary.AboutUI;
 import org.jspecify.annotations.NonNull;
 
@@ -71,49 +71,49 @@ public class MainUI extends JFrame {
         tabbedPane.addTab(
                 "CPU",
                 new FlatSVGIcon(MainUI.class.getResource("/icons/tab_icons_material_green/CPU.svg")),
-                new WMIProcessorPanel().initUI().initComponents().initWorkers(),
+                new ProcessorPanel().initUI().initComponents().initWorkers(),
                 null
         );
 
         tabbedPane.addTab(
                 "Memory",
                 new FlatSVGIcon(MainUI.class.getResource("/icons/tab_icons_material_green/RAM.svg")),
-                new WMIPhysicalMemoryPanel().initUI().initComponents().initWorkers(),
+                new PhysicalMemoryPanel().initUI().initComponents().initWorkers(),
                 null
         );
 
         tabbedPane.addTab(
                 "Mainboard",
                 new FlatSVGIcon(MainUI.class.getResource("/icons/tab_icons_material_green/MainBoard.svg")),
-                new WMIMainboardPanel().initUI().initComponents().initWorkers(),
+                new MainboardPanel().initUI().initComponents().initWorkers(),
                 null
         );
 
         tabbedPane.addTab(
                 "GPU",
                 new FlatSVGIcon(MainUI.class.getResource("/icons/tab_icons_material_green/GPU.svg")),
-                new WMIVideoControllerPanel().initUI().initComponents().initWorkers(),
+                new VideoControllerPanel().initUI().initComponents().initWorkers(),
                 null
         );
 
         tabbedPane.addTab(
                 "Network",
                 new FlatSVGIcon(MainUI.class.getResource("/icons/tab_icons_material_green/Network.svg")),
-                new WMINetworkPanel().initUI().initComponents().initWorkers(),
+                new NetworkPanel().initUI().initComponents().initWorkers(),
                 null
         );
 
         tabbedPane.addTab(
                 "Storage",
                 new FlatSVGIcon(MainUI.class.getResource("/icons/tab_icons_material_green/Storage.svg")),
-                new WMIStoragePanel().initUI().initComponents().initWorkers(),
+                new StoragePanel().initUI().initComponents().initWorkers(),
                 null
         );
 
         tabbedPane.addTab(
                 "OS",
                 new FlatSVGIcon(MainUI.class.getResource("/icons/tab_icons_material_green/OS.svg")),
-                new WMIOperatingSystemPanel().initUI().initComponents().initWorkers(),
+                new OperatingSystemPanel().initUI().initComponents().initWorkers(),
                 null
         );
 
