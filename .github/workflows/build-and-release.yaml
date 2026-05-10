@@ -16,7 +16,7 @@ jobs:
         include:
           - os: windows-latest
             platform: windows
-            arch: x64
+            arch: x86_64
             jpackage_goal: win
 
           - os: windows-11-arm
@@ -70,5 +70,5 @@ jobs:
         with:
           tag_name: ${{ github.ref_name }}
           files: |
-            nautilus-windows-x64/nautilus-${{ github.ref_name }}-windows-x64.zip
+            nautilus-windows-x86_64/nautilus-${{ github.ref_name }}-windows-x86_64.zip
             nautilus-windows-arm64/nautilus-${{ github.ref_name }}-windows-arm64.zip
