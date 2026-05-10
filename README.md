@@ -22,7 +22,7 @@ Binaries can be found in [Releases](https://github.com/nautiliday/nautilus-windo
 
 - Clone the repository
 ```shell
-git clone https://github.com/eggy03/Nautilus.git
+git clone https://github.com/nautiliday/nautilus-windows.git
 cd Nautilus
 ```
 - Build the application 
