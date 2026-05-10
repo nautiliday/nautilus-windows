@@ -14,7 +14,6 @@ import java.awt.Insets;
 
 /**
  * Configures global Swing UI and Look-and-Feel (LAF) settings
- * for the Nautilus Windows application.
  *
  * <p>
  * This class provides helpers for:
