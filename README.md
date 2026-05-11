@@ -30,7 +30,7 @@ cd Nautilus
 ./mvnw -Pdist package jpackage:jpackage@win
 ```
 
-The generated binaries will be available in `../Nautilus/target/output`
+The generated binaries will be available in `{project.directory}/target/output`
 
 > [!IMPORTANT]
 > Note that each subsequent build requires manually clearing out the target folder because for some reason,
